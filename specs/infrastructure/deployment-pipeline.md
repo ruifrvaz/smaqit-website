@@ -1,8 +1,9 @@
 ---
 id: INF-DEPLOY
-status: deployed
+status: validated
 created: 2026-01-22
 deployed: 2026-01-30T00:00:00Z
+validated: 2026-01-30T23:25:24Z
 prompt_version: initial
 ---
 
