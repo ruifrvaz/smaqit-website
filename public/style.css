@@ -1,0 +1,345 @@
+/* Traceability: STK-FRONTEND-002 (CSS3 with Flexbox, Grid, Custom Properties) */
+
+/* ===================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   =================================== */
+:root {
+    /* Colors - Empowering palette */
+    --color-primary: #FF6B35;        /* Bold orange - energy */
+    --color-primary-dark: #E85A2A;   /* Darker orange for hover */
+    --color-secondary: #004E89;      /* Deep blue - stability */
+    --color-accent: #F7931E;         /* Bright accent */
+    --color-dark: #1A1A2E;           /* Near black */
+    --color-text: #333333;           /* Body text */
+    --color-text-light: #666666;     /* Secondary text */
+    --color-bg: #FFFFFF;             /* White background */
+    --color-bg-alt: #F8F9FA;         /* Alternate background */
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --spacing-xxl: 6rem;
+    
+    /* Breakpoints (for reference in media queries) */
+    --breakpoint-mobile: 768px;
+    --breakpoint-tablet: 1024px;
+}
+
+/* ===================================
+   RESET & BASE STYLES
+   =================================== */
+/* Traceability: STK-FRONTEND-001 (HTML5 standard) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Traceability: FUN-LAYOUT-004 (Smooth scroll behavior) */
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+    /* Traceability: FUN-LAYOUT-003 (Fast load time optimization) */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================
+   CONTAINER
+   =================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+/* Traceability: FUN-HERO-007 (Hero visible on load) */
+.hero-section {
+    min-height: 100vh;
+    /* Traceability: STK-FRONTEND-009 (Flexbox for responsive layout) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-dark) 100%);
+    color: var(--color-bg);
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+/* Traceability: FUN-HERO-001, FUN-HERO-006 (Product name, bold typography) */
+.product-name {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: var(--font-weight-black);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-sm);
+    /* Empowering energy through bold typography */
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Traceability: FUN-HERO-002 (Tagline) */
+.tagline {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-bg);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: 0.02em;
+}
+
+/* Traceability: FUN-HERO-003, FUN-HERO-004, FUN-HERO-005 (Product description) */
+.product-description {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.description-main {
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    margin-bottom: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.description-audience {
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    margin-bottom: var(--spacing-sm);
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.description-license {
+    font-size: clamp(0.875rem, 1.25vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/* ===================================
+   FEATURES SECTION
+   =================================== */
+/* Traceability: FUN-FEATURES-010 (Below hero) */
+.features-section {
+    padding: var(--spacing-xxl) var(--spacing-md);
+    background-color: var(--color-bg-alt);
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: var(--font-weight-black);
+    text-align: center;
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Traceability: FUN-FEATURES-006, FUN-FEATURES-007, STK-FRONTEND-009 (Grid layout) */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Traceability: FUN-FEATURES-001 (Feature cards) */
+.feature-card {
+    background: var(--color-bg);
+    padding: var(--spacing-lg);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-dark);
+    margin-bottom: var(--spacing-sm);
+}
+
+.feature-description {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+/* ===================================
+   FOOTER SECTION
+   =================================== */
+.footer-section {
+    padding: var(--spacing-xl) var(--spacing-md);
+    background-color: var(--color-dark);
+    color: var(--color-bg);
+    text-align: center;
+}
+
+/* Traceability: FUN-SOCIAL-001, FUN-SOCIAL-002 (Social icons) */
+.social-links {
+    /* Traceability: STK-FRONTEND-009 (Flexbox for layout) */
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Traceability: FUN-SOCIAL-005, FUN-SOCIAL-006, FUN-SOCIAL-012 (Hover states, mobile clickable) */
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-bg);
+    text-decoration: none;
+    font-size: 1.125rem;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.social-link:hover,
+.social-link:focus {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.social-link i {
+    font-size: 1.5rem;
+}
+
+/* Traceability: FUN-SOCIAL-011 (Text fallback) */
+.social-label {
+    font-weight: var(--font-weight-bold);
+}
+
+.footer-copyright {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: var(--spacing-md);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+/* Traceability: FUN-LAYOUT-005 (Mobile viewports < 768px) */
+@media (max-width: 767px) {
+    .hero-section {
+        min-height: 90vh;
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .product-name {
+        font-size: 2.5rem;
+    }
+    
+    .tagline {
+        font-size: 1.25rem;
+    }
+    
+    /* Traceability: FUN-FEATURES-008 (Mobile grid) */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .social-link {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+/* Traceability: FUN-LAYOUT-006 (Tablet viewports 768px-1024px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Traceability: FUN-LAYOUT-007 (Desktop viewports > 1024px) */
+@media (min-width: 1024px) {
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===================================
+   ACCESSIBILITY
+   =================================== */
+/* Focus visible for keyboard navigation */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+@media print {
+    .hero-section {
+        min-height: auto;
+        background: white;
+        color: black;
+    }
+    
+    .product-name {
+        -webkit-text-fill-color: black;
+        background: none;
+        color: black;
+    }
+    
+    .social-link {
+        background: none;
+        color: black;
+        border: 1px solid black;
+    }
+}
