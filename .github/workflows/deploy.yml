@@ -1,0 +1,54 @@
+# Refs: INF-DEPLOY-001, INF-DEPLOY-002, INF-DEPLOY-003
+# GitHub Actions workflow for deploying to GitHub Pages
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'public/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Refs: INF-DEPLOY-005
+      - name: Validate files exist
+        run: |
+          if [ ! -f "public/index.html" ]; then
+            echo "Error: public/index.html not found"
+            exit 1
+          fi
+          echo "✓ Validation passed: public/index.html exists"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Refs: INF-DEPLOY-003
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './public'
+
+      # Refs: INF-DEPLOY-004, INF-HOSTING-002
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
