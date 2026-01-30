@@ -1,0 +1,87 @@
+name: Validation Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test:
+    name: Run Validation Tests
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+        viewport: [desktop, tablet, mobile]
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run tests
+        run: npx playwright test --project=${{ matrix.browser }}-${{ matrix.viewport }}
+        env:
+          CI: true
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results-${{ matrix.browser }}-${{ matrix.viewport }}
+          path: test-results/
+          retention-days: 30
+
+      - name: Upload HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report-${{ matrix.browser }}-${{ matrix.viewport }}
+          path: playwright-report/
+          retention-days: 30
+
+  report:
+    name: Generate Test Report
+    needs: test
+    if: always()
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Download all test results
+        uses: actions/download-artifact@v4
+        with:
+          path: all-test-results
+
+      - name: Generate summary report
+        run: |
+          echo "# Validation Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -d "all-test-results" ]; then
+            echo "Test artifacts collected successfully." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "### Matrix Coverage" >> $GITHUB_STEP_SUMMARY
+            echo "- Browsers: chromium, firefox, webkit" >> $GITHUB_STEP_SUMMARY
+            echo "- Viewports: desktop (1440px), tablet (768px), mobile (375px)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "⚠️ No test artifacts found." >> $GITHUB_STEP_SUMMARY
+          fi
