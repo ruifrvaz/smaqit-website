@@ -2,7 +2,7 @@
 
 **Power up with smaQ'it** — A Spec Driven Development (SDD) toolkit for IT professionals.
 
-This repository contains the official landing page for smaQ'it, built with simplicity and performance in mind.
+This repository contains the official landing page for smaQit, built with simplicity and performance in mind.
 
 ---
 
