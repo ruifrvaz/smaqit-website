@@ -1,0 +1,17 @@
+{
+  "name": "smaqit-website-tests",
+  "version": "1.0.0",
+  "description": "Validation tests for smaQ'it website",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
+    "test:report": "playwright show-report"
+  },
+  "keywords": ["smaqit", "validation", "e2e-tests"],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0"
+  }
+}
