@@ -1,8 +1,9 @@
 ---
 id: FUN-FEATURES
-status: implemented
+status: deployed
 created: 2026-01-22
 implemented: 2026-01-22T23:30:00Z
+deployed: 2026-01-30T00:00:00Z
 prompt_version: initial
 ---
 

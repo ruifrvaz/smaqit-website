@@ -1,7 +1,8 @@
 ---
 id: INF-DEPLOY
-status: draft
+status: deployed
 created: 2026-01-22
+deployed: 2026-01-30T00:00:00Z
 prompt_version: initial
 ---
 
@@ -227,22 +228,22 @@ GitHub Actions provides step-by-step execution logs for each workflow run.
 
 Requirements use format: `INF-DEPLOY-[NNN]`
 
-- [ ] INF-DEPLOY-001: GitHub Actions workflow file exists at `.github/workflows/deploy.yml`
-- [ ] INF-DEPLOY-002: Workflow triggers on push of version tags matching pattern `v*`
-- [ ] INF-DEPLOY-003: Workflow pauses and requires manual approval before deploying to production
-- [ ] INF-DEPLOY-004: `github-pages` environment is configured with required reviewers in repository settings
-- [ ] INF-DEPLOY-005: Workflow references `environment: github-pages` to enforce approval gate
-- [ ] INF-DEPLOY-006: Workflow validates `public/index.html` exists before requesting approval
-- [ ] INF-DEPLOY-007: Designated reviewers receive notification when deployment awaits approval
-- [ ] INF-DEPLOY-008: Workflow deploys `/public` directory to GitHub Pages only after approval
-- [ ] INF-DEPLOY-009: Workflow uses `GITHUB_TOKEN` for authentication
-- [ ] INF-DEPLOY-010: Rejected deployments do not deploy to production
-- [ ] INF-DEPLOY-011: Deployment completes within 5 minutes of approval
-- [ ] INF-DEPLOY-012: Deployment status is visible in GitHub Actions UI (pending/approved/rejected)
-- [ ] INF-DEPLOY-013: Failed deployments do not overwrite production site
-- [ ] INF-DEPLOY-014: Site is accessible at GitHub Pages URL within 10 minutes of successful deployment
-- [ ] INF-DEPLOY-015: Workflow logs are accessible for 90 days after deployment
-- [ ] INF-DEPLOY-016: Approval history is recorded and traceable in GitHub Deployments
+- [x] INF-DEPLOY-001: GitHub Actions workflow file exists at `.github/workflows/deploy.yml`
+- [x] INF-DEPLOY-002: Workflow triggers on push of version tags matching pattern `v*`
+- [x] INF-DEPLOY-003: Workflow pauses and requires manual approval before deploying to production
+- [x] INF-DEPLOY-004: `github-pages` environment is configured with required reviewers in repository settings
+- [x] INF-DEPLOY-005: Workflow references `environment: github-pages` to enforce approval gate
+- [x] INF-DEPLOY-006: Workflow validates `public/index.html` exists before requesting approval
+- [x] INF-DEPLOY-007: Designated reviewers receive notification when deployment awaits approval
+- [x] INF-DEPLOY-008: Workflow deploys `/public` directory to GitHub Pages only after approval
+- [x] INF-DEPLOY-009: Workflow uses `GITHUB_TOKEN` for authentication
+- [x] INF-DEPLOY-010: Rejected deployments do not deploy to production
+- [x] INF-DEPLOY-011: Deployment completes within 5 minutes of approval
+- [x] INF-DEPLOY-012: Deployment status is visible in GitHub Actions UI (pending/approved/rejected)
+- [x] INF-DEPLOY-013: Failed deployments do not overwrite production site
+- [x] INF-DEPLOY-014: Site is accessible at GitHub Pages URL within 10 minutes of successful deployment
+- [x] INF-DEPLOY-015: Workflow logs are accessible for 90 days after deployment
+- [x] INF-DEPLOY-016: Approval history is recorded and traceable in GitHub Deployments
 
 ### Untestable Criteria
 

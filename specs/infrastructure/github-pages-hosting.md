@@ -1,7 +1,8 @@
 ---
 id: INF-HOSTING
-status: draft
+status: deployed
 created: 2026-01-22
+deployed: 2026-01-30T00:00:00Z
 prompt_version: initial
 ---
 
@@ -138,16 +139,16 @@ Not applicable for static site hosting.
 
 Requirements use format: `INF-HOSTING-[NNN]`
 
-- [ ] INF-HOSTING-001: GitHub Pages is enabled for the repository
-- [ ] INF-HOSTING-002: Source is set to `main` branch, `/public` directory
-- [ ] INF-HOSTING-003: Site is accessible via `https://[username].github.io/[repository]` URL
-- [ ] INF-HOSTING-004: HTTPS is enforced (HTTP requests redirect to HTTPS)
-- [ ] INF-HOSTING-005: Site serves `index.html` from `/public` directory as root
-- [ ] INF-HOSTING-006: CSS file (`style.css`) loads correctly via HTTPS
-- [ ] INF-HOSTING-007: JavaScript file (`script.js`) loads correctly via HTTPS
-- [ ] INF-HOSTING-008: Font Awesome CDN resources load correctly (no mixed content errors)
-- [ ] INF-HOSTING-009: Google Fonts CDN resources load correctly (no mixed content errors)
-- [ ] INF-HOSTING-010: Repository size remains under 1 GB recommended limit
+- [x] INF-HOSTING-001: GitHub Pages is enabled for the repository
+- [x] INF-HOSTING-002: Source is set to `main` branch, `/public` directory
+- [x] INF-HOSTING-003: Site is accessible via `https://[username].github.io/[repository]` URL
+- [x] INF-HOSTING-004: HTTPS is enforced (HTTP requests redirect to HTTPS)
+- [x] INF-HOSTING-005: Site serves `index.html` from `/public` directory as root
+- [x] INF-HOSTING-006: CSS file (`style.css`) loads correctly via HTTPS
+- [x] INF-HOSTING-007: JavaScript file (`script.js`) loads correctly via HTTPS
+- [x] INF-HOSTING-008: Font Awesome CDN resources load correctly (no mixed content errors)
+- [x] INF-HOSTING-009: Google Fonts CDN resources load correctly (no mixed content errors)
+- [x] INF-HOSTING-010: Repository size remains under 1 GB recommended limit
 
 ---
 
