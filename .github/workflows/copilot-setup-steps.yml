@@ -39,26 +39,23 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
-      - name: Install smaQit CLI
+      - name: Install smaqit CLI
         run: |
+          # Using the official installation script from smaqit repository
           curl -fsSL https://raw.githubusercontent.com/ruifrvaz/smaqit/main/install.sh | bash
           echo "$HOME/.smaqit/bin" >> $GITHUB_PATH
 
-      - name: Initialize smaQit
+      - name: Initialize smaqit
         run: |
-          # Add smaqit to PATH for this step
-          export PATH="$HOME/.smaqit/bin:$PATH"
-          
           # Check if already initialized
           if [ ! -d ".smaqit" ]; then
             smaqit init
-            echo "smaQit initialized successfully"
+            echo "smaqit initialized successfully"
           else
-            echo "smaQit already initialized, skipping"
+            echo "smaqit already initialized, skipping"
           fi
 
-      - name: Verify smaQit installation
+      - name: Verify smaqit installation
         run: |
-          export PATH="$HOME/.smaqit/bin:$PATH"
           smaqit version
           smaqit validate
