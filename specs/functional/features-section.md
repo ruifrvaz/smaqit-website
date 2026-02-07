@@ -40,7 +40,7 @@ prompt_version: initial
 
 ### Overview
 
-Visitor scrolls to features section and views 4 feature cards arranged in a responsive grid, learning about smaQ'it's key differentiators.
+Visitor scrolls to features section and views 4 feature cards arranged in a responsive grid, learning about smaQit's key differentiators.
 
 ### Steps
 
@@ -51,7 +51,7 @@ Visitor scrolls to features section and views 4 feature cards arranged in a resp
 5. Visitor reads second feature: "Versioned Prompts" with description
 6. Visitor reads third feature: "Built for Agile Teams" with description
 7. Visitor reads fourth feature: "Modular Layers" with description
-8. Visitor understands smaQ'it's innovative approach and differentiators
+8. Visitor understands smaQit's innovative approach and differentiators
 
 ### Error Handling
 

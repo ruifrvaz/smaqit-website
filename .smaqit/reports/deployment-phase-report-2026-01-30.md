@@ -206,7 +206,7 @@ git push origin v1.0.3
 
 - [ ] Site loads at `https://ruifrvaz.github.io/smaqit-website`
 - [ ] HTTPS enforced (green lock icon in browser)
-- [ ] Hero section visible with "smaQ'it" branding
+- [ ] Hero section visible with "smaQit" branding
 - [ ] Four feature cards display in grid layout
 - [ ] Social icons (GitHub, LinkedIn) visible and clickable
 - [ ] Font Awesome icons render correctly
@@ -436,4 +436,4 @@ www  CNAME  ruifrvaz.github.io
 **Generated:** 2026-01-30  
 **Agent:** smaqit.deployment  
 **Methodology:** Spec Driven Development (SDD)  
-**Framework:** smaQ'it v0.6.2-beta
+**Framework:** smaQit v0.6.2-beta

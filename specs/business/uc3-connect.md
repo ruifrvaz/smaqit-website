@@ -31,7 +31,7 @@ prompt_version: initial
 |-------|-------------|-------|
 | Interested Professional | IT professional wanting to explore or contribute | Access the GitHub repository to view source code or contribute |
 | Networking Contact | Professional seeking to connect with the creator | Find LinkedIn profile to establish professional connection |
-| Community Member | Developer interested in following project updates | Locate social channels to stay informed about smaQ'it |
+| Community Member | Developer interested in following project updates | Locate social channels to stay informed about smaQit |
 
 ## Success Metrics
 
@@ -44,7 +44,7 @@ prompt_version: initial
 
 ### Preconditions
 
-- Visitor is on the smaQ'it website
+- Visitor is on the smaQit website
 - Visitor has interest in connecting or exploring further
 
 ### Main Flow
@@ -64,7 +64,7 @@ prompt_version: initial
 
 1. Visitor locates GitHub icon
 2. Visitor clicks GitHub link
-3. Visitor arrives at smaQ'it GitHub repository
+3. Visitor arrives at smaQit GitHub repository
 
 #### LinkedIn-First Interest
 
@@ -85,7 +85,7 @@ Requirements use format: `BUS-CONNECT-[NNN]`
 
 - [x] BUS-CONNECT-001: Visitor sees a GitHub icon link at the bottom of the page
 - [x] BUS-CONNECT-002: Visitor sees a LinkedIn icon link at the bottom of the page
-- [x] BUS-CONNECT-003: GitHub link directs visitor to the smaQ'it repository
+- [x] BUS-CONNECT-003: GitHub link directs visitor to the smaQit repository
 - [x] BUS-CONNECT-004: LinkedIn link directs visitor to the creator's professional profile
 - [x] BUS-CONNECT-005: Social icons are visually recognizable as clickable links
 

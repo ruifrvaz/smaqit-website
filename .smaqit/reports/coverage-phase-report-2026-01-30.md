@@ -335,4 +335,4 @@ test.describe('UC1: Learn About smaQ\'it', () => {
 **Generated:** 2026-01-30  
 **Agent:** smaqit.coverage  
 **Methodology:** Spec Driven Development (SDD)  
-**Framework:** smaQ'it v0.6.2-beta
+**Framework:** smaQit v0.6.2-beta
