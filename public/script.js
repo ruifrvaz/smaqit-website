@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Log successful initialization (development only)
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log('✅ smaQ\'it website loaded successfully');
+        console.log('✅ smaQit website loaded successfully');
         console.log('📊 Smooth scroll:', supportsNativeSmoothScroll ? 'Native CSS' : 'JS Polyfill');
         console.log('🎨 IntersectionObserver:', 'IntersectionObserver' in window ? 'Supported' : 'Not supported');
     }

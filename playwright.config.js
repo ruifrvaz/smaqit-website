@@ -19,12 +19,18 @@ module.exports = defineConfig({
     ['json', { outputFile: 'test-results.json' }]
   ],
   use: {
-    baseURL: 'https://ruifrvaz.github.io/smaqit-website',
+    baseURL: process.env.CI ? 'http://localhost:8080' : 'https://ruifrvaz.github.io/smaqit-website',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     actionTimeout: 10000,
     navigationTimeout: 10000,
   },
+  webServer: process.env.CI ? {
+    command: 'npx http-server public -p 8080 -c-1',
+    port: 8080,
+    timeout: 120000,
+    reuseExistingServer: false,
+  } : undefined,
 
   projects: [
     {

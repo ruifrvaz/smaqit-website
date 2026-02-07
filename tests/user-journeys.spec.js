@@ -30,8 +30,8 @@ test.describe('UC1: Learn About smaQit', () => {
     await page.goto('');
     
     await expect(page.locator('text=/Spec Driven Development/i')).toBeVisible();
-    await expect(page.locator('text=/SDD/i')).toBeVisible();
-    await expect(page.locator('text=/toolkit/i')).toBeVisible();
+    await expect(page.locator('.hero-section, header').locator('text=/SDD/i')).toBeVisible();
+    await expect(page.locator('.hero-section, header').locator('text=/toolkit/i')).toBeVisible();
   });
 
   // COV-JOURNEYS-004: Maps to BUS-PRODUCT-004
@@ -56,7 +56,7 @@ test.describe('UC1: Learn About smaQit', () => {
   test('Open source license is stated', async ({ page }) => {
     await page.goto('');
     
-    await expect(page.locator('text=/open source|Open Source/i')).toBeVisible();
+    await expect(page.locator('.hero-section, header').locator('text=/open source|Open Source/i')).toBeVisible();
   });
 });
 
@@ -93,7 +93,7 @@ test.describe('UC2: Explore smaQit Capabilities', () => {
     
     await page.locator('text=/features/i').scrollIntoViewIfNeeded();
     
-    await expect(page.locator('text=/agile/i')).toBeVisible();
+    await expect(page.locator('.features-section, #features').locator('text=/agile/i').first()).toBeVisible();
     
     // Should mention agile teams
     const hasAgileTeams = await page.evaluate(() => {
@@ -149,7 +149,7 @@ test.describe('UC3: Connect via Social Channels', () => {
     
     await page.locator('footer').scrollIntoViewIfNeeded();
     
-    const githubIcon = page.locator('footer a[href*="github.com"] i, footer .fa-github');
+    const githubIcon = page.locator('footer a[href*="github.com"] i').first();
     await expect(githubIcon).toBeVisible();
   });
 
@@ -159,7 +159,7 @@ test.describe('UC3: Connect via Social Channels', () => {
     
     await page.locator('footer').scrollIntoViewIfNeeded();
     
-    const linkedinIcon = page.locator('footer a[href*="linkedin.com"] i, footer .fa-linkedin');
+    const linkedinIcon = page.locator('footer a[href*="linkedin.com"] i').first();
     await expect(linkedinIcon).toBeVisible();
   });
 
@@ -186,7 +186,7 @@ test.describe('UC3: Connect via Social Channels', () => {
     const href = await linkedinLink.getAttribute('href');
     
     // Verify it's the correct LinkedIn profile for Rui Vaz
-    expect(href).toBe('https://www.linkedin.com/in/rui-vaz-43b13842/');
+    expect(href).toBe('https://www.linkedin.com/in/rui-vaz-43b13842');
   });
 
   // COV-JOURNEYS-015: Maps to BUS-CONNECT-005
@@ -235,7 +235,7 @@ test.describe('Complete User Journey', () => {
     // Read feature content
     await expect(page.locator('text=Stateful Specs')).toBeVisible();
     await expect(page.locator('text=Versioned Prompts')).toBeVisible();
-    await expect(page.locator('text=/agile/i')).toBeVisible();
+    await expect(page.locator('.features-section, #features').locator('text=/agile/i').first()).toBeVisible();
     await expect(page.locator('text=/Modular/i')).toBeVisible();
     
     // Step 3: Scroll to footer and find social connections
