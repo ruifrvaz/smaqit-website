@@ -2,7 +2,7 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 /**
- * Playwright configuration for smaQ'it website validation
+ * Playwright configuration for smaQit website validation
  * Implements: COV-FUNCTIONAL, COV-TECHNICAL, COV-JOURNEYS
  * Target: https://ruifrvaz.github.io/smaqit-website
  */

@@ -41,7 +41,7 @@ Visitor lands on the page and experiences a vertical scrolling journey through t
 
 ### Steps
 
-1. Visitor navigates to smaQ'it website URL
+1. Visitor navigates to smaQit website URL
 2. Browser loads page resources (HTML, CSS, JavaScript, assets)
 3. Hero section renders in viewport within 2 seconds
 4. Visitor scrolls down using mouse wheel, trackpad, or touch gesture

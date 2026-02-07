@@ -24,8 +24,8 @@ prompt_version: initial
 
 ### Included
 
-- Product name ("smaQ'it") display
-- Tagline ("Power up with smaQ'it") display
+- Product name ("smaQit") display
+- Tagline ("Power up with smaQit") display
 - Product description (SDD toolkit, target audience, open source)
 - Visual design conveying empowering energy
 - Typography and layout for hero content
@@ -40,13 +40,13 @@ prompt_version: initial
 
 ### Overview
 
-Visitor immediately sees the hero section upon landing, understanding what smaQ'it is and its value proposition within 10 seconds.
+Visitor immediately sees the hero section upon landing, understanding what smaQit is and its value proposition within 10 seconds.
 
 ### Steps
 
 1. Page loads with hero section occupying initial viewport
-2. Visitor sees product name "smaQ'it" prominently displayed
-3. Visitor reads tagline "Power up with smaQ'it"
+2. Visitor sees product name "smaQit" prominently displayed
+3. Visitor reads tagline "Power up with smaQit"
 4. Visitor reads product description explaining it's an SDD toolkit
 5. Visitor identifies target audience (IT professionals)
 6. Visitor recognizes product is open source
@@ -65,8 +65,8 @@ Visitor immediately sees the hero section upon landing, understanding what smaQ'
 
 | Attribute | Type | Description | Constraints |
 |-----------|------|-------------|-------------|
-| name | Text | Product name | Required; value: "smaQ'it" |
-| tagline | Text | Product tagline | Required; value: "Power up with smaQ'it" |
+| name | Text | Product name | Required; value: "smaQit" |
+| tagline | Text | Product tagline | Required; value: "Power up with smaQit" |
 | description | Text | Product description | Required; includes toolkit type, audience, license |
 | toolkitType | Text | Type of toolkit | Required; value: "Spec Driven Development (SDD) toolkit" |
 | targetAudience | Text | Intended users | Required; value: "IT professionals (POs, architects, engineers, testers)" |
@@ -84,8 +84,8 @@ Visitor immediately sees the hero section upon landing, understanding what smaQ'
 
 Requirements use format: `FUN-HERO-[NNN]`
 
-- [x] FUN-HERO-001: Hero section displays product name "smaQ'it" prominently
-- [x] FUN-HERO-002: Hero section displays tagline "Power up with smaQ'it"
+- [x] FUN-HERO-001: Hero section displays product name "smaQit" prominently
+- [x] FUN-HERO-002: Hero section displays tagline "Power up with smaQit"
 - [x] FUN-HERO-003: Hero section displays description identifying product as "Spec Driven Development (SDD) toolkit"
 - [x] FUN-HERO-004: Hero section displays target audience as "IT professionals (POs, architects, engineers, testers)"
 - [x] FUN-HERO-005: Hero section displays "open source" licensing information

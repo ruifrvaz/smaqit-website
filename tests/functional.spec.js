@@ -47,7 +47,7 @@ test.describe('Page Layout Tests', () => {
     expect(loadTime).toBeLessThan(2000);
     
     // Verify critical content is visible
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
   });
 
   // COV-FUNCTIONAL-004: Maps to FUN-LAYOUT-004
@@ -73,7 +73,7 @@ test.describe('Page Layout Tests', () => {
     expect(bodyWidth).toBeLessThanOrEqual(375);
     
     // Verify content is readable
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
   });
 
   // COV-FUNCTIONAL-006: Maps to FUN-LAYOUT-006
@@ -81,7 +81,7 @@ test.describe('Page Layout Tests', () => {
     await page.setViewportSize({ width: 768, height: 1024 });
     await page.goto('');
     
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
     await expect(page.locator('text=Key Features')).toBeVisible();
   });
 
@@ -90,7 +90,7 @@ test.describe('Page Layout Tests', () => {
     await page.setViewportSize({ width: 1440, height: 900 });
     await page.goto('');
     
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
     
     // Feature cards should use grid layout on desktop
     const featuresGrid = page.locator('.features-grid, .feature-cards');
@@ -110,7 +110,7 @@ test.describe('Page Layout Tests', () => {
     await page.goto('/', { waitUntil: 'domcontentloaded' });
     
     // All content should be visible
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
     await expect(page.locator('text=Key Features')).toBeVisible();
     
     // Links should be clickable
@@ -155,7 +155,7 @@ test.describe('Hero Section Tests', () => {
   test('Hero section displays product name prominently', async ({ page }) => {
     await page.goto('');
     
-    const productName = page.locator('text=smaQ\'it').first();
+    const productName = page.locator('text=smaQit').first();
     await expect(productName).toBeVisible();
   });
 
@@ -163,7 +163,7 @@ test.describe('Hero Section Tests', () => {
   test('Hero section displays tagline', async ({ page }) => {
     await page.goto('');
     
-    await expect(page.locator('text=Power up with smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=Power up with smaQit')).toBeVisible();
   });
 
   // COV-FUNCTIONAL-013: Maps to FUN-HERO-003
@@ -217,8 +217,8 @@ test.describe('Hero Section Tests', () => {
     await page.goto('');
     
     // Content should still be visible with fallback fonts
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
-    await expect(page.locator('text=Power up with smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
+    await expect(page.locator('text=Power up with smaQit')).toBeVisible();
   });
 });
 

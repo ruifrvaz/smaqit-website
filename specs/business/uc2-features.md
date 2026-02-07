@@ -8,7 +8,7 @@ validated: 2026-01-30T23:25:24Z
 prompt_version: initial
 ---
 
-# UC2-FEATURES: Explore smaQ'it Capabilities
+# UC2-FEATURES: Explore smaQit Capabilities
 
 ## Scope
 
@@ -16,7 +16,7 @@ prompt_version: initial
 
 - Key feature presentation and differentiators
 - Value communication for each capability
-- Comparison context (what makes smaQ'it stand out)
+- Comparison context (what makes smaQit stand out)
 
 ### Excluded
 
@@ -29,7 +29,7 @@ prompt_version: initial
 
 | Actor | Description | Goals |
 |-------|-------------|-------|
-| Product Owner | Professional responsible for product decisions | Evaluate if smaQ'it fits team workflow and agile practices |
+| Product Owner | Professional responsible for product decisions | Evaluate if smaQit fits team workflow and agile practices |
 | Architect | Technical leader designing systems | Assess modularity and integration potential |
 | Engineer | Developer building software | Understand how stateful specs and versioned prompts improve development |
 | Tester | QA professional ensuring quality | Evaluate how SDD approach supports testing practices |
@@ -39,13 +39,13 @@ prompt_version: initial
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Feature Comprehension | Visitor can name at least 3 key features after viewing | User recall test |
-| Differentiation Clarity | Visitor understands what makes smaQ'it unique | Feedback survey |
+| Differentiation Clarity | Visitor understands what makes smaQit unique | Feedback survey |
 
 ## Use Case
 
 ### Preconditions
 
-- Visitor is on the smaQ'it website
+- Visitor is on the smaQit website
 - Visitor has basic understanding of software development concepts
 
 ### Main Flow
@@ -55,7 +55,7 @@ prompt_version: initial
 3. Visitor learns about versioned prompts for reproducibility
 4. Visitor understands the toolkit is built for agile teams
 5. Visitor recognizes the modular layers architecture
-6. Visitor appreciates what differentiates smaQ'it from other approaches
+6. Visitor appreciates what differentiates smaQit from other approaches
 
 ### Alternative Flows
 
@@ -69,7 +69,7 @@ prompt_version: initial
 
 ### Postconditions
 
-- Visitor can articulate key smaQ'it features
+- Visitor can articulate key smaQit features
 - Visitor understands the differentiating factors
 - Visitor can assess relevance to their professional context
 
@@ -77,11 +77,11 @@ prompt_version: initial
 
 Requirements use format: `BUS-FEATURES-[NNN]`
 
-- [x] BUS-FEATURES-001: Visitor can identify stateful specs as a key feature of smaQ'it
-- [x] BUS-FEATURES-002: Visitor can identify versioned prompts as a key feature of smaQ'it
-- [x] BUS-FEATURES-003: Visitor understands smaQ'it is designed for agile teams
+- [x] BUS-FEATURES-001: Visitor can identify stateful specs as a key feature of smaQit
+- [x] BUS-FEATURES-002: Visitor can identify versioned prompts as a key feature of smaQit
+- [x] BUS-FEATURES-003: Visitor understands smaQit is designed for agile teams
 - [x] BUS-FEATURES-004: Visitor can identify modular layers as a key architectural aspect
-- [x] BUS-FEATURES-005: Visitor perceives smaQ'it as innovative compared to traditional approaches
+- [x] BUS-FEATURES-005: Visitor perceives smaQit as innovative compared to traditional approaches
 
 ### Untestable Criteria
 

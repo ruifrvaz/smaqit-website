@@ -99,7 +99,7 @@ test.describe('Frontend Stack Tests', () => {
   test('Content accessible without JavaScript', async ({ page }) => {
     await page.goto('/', { javaScriptEnabled: false });
     
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
     await expect(page.locator('text=Key Features')).toBeVisible();
   });
 
@@ -316,7 +316,7 @@ test.describe('Infrastructure Tests', () => {
     expect(response.status()).toBe(200);
     
     // Check that the page contains expected content
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
   });
 
   // COV-TECHNICAL-027: Maps to INF-HOSTING-006
@@ -482,6 +482,6 @@ test.describe('Performance Tests', () => {
     expect(domLoadTime).toBeLessThan(2000);
     
     // Verify critical content is visible
-    await expect(page.locator('text=smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit')).toBeVisible();
   });
 });

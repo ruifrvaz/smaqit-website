@@ -7,13 +7,13 @@ const { test, expect } = require('@playwright/test');
  * Tests: 16 business use case validations across UC1, UC2, UC3
  */
 
-test.describe('UC1: Learn About smaQ\'it', () => {
+test.describe('UC1: Learn About smaQit', () => {
   
   // COV-JOURNEYS-001: Maps to BUS-PRODUCT-001
   test('Product name is visible on landing', async ({ page }) => {
     await page.goto('');
     
-    const productName = page.locator('text=smaQ\'it').first();
+    const productName = page.locator('text=smaQit').first();
     await expect(productName).toBeVisible();
     await expect(productName).toBeInViewport();
   });
@@ -22,7 +22,7 @@ test.describe('UC1: Learn About smaQ\'it', () => {
   test('Tagline is visible on landing', async ({ page }) => {
     await page.goto('');
     
-    await expect(page.locator('text=Power up with smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=Power up with smaQit')).toBeVisible();
   });
 
   // COV-JOURNEYS-003: Maps to BUS-PRODUCT-003
@@ -60,7 +60,7 @@ test.describe('UC1: Learn About smaQ\'it', () => {
   });
 });
 
-test.describe('UC2: Explore smaQ\'it Capabilities', () => {
+test.describe('UC2: Explore smaQit Capabilities', () => {
   
   // COV-JOURNEYS-006: Maps to BUS-FEATURES-001
   test('Stateful Specs feature is visible', async ({ page }) => {
@@ -164,7 +164,7 @@ test.describe('UC3: Connect via Social Channels', () => {
   });
 
   // COV-JOURNEYS-013: Maps to BUS-CONNECT-003
-  test('GitHub link navigates to smaQ\'it repository', async ({ page }) => {
+  test('GitHub link navigates to smaQit repository', async ({ page }) => {
     await page.goto('');
     
     await page.locator('footer').scrollIntoViewIfNeeded();
@@ -219,8 +219,8 @@ test.describe('Complete User Journey', () => {
     await page.goto('');
     
     // Verify immediate visibility
-    await expect(page.locator('text=smaQ\'it').first()).toBeVisible();
-    await expect(page.locator('text=Power up with smaQ\'it')).toBeVisible();
+    await expect(page.locator('text=smaQit').first()).toBeVisible();
+    await expect(page.locator('text=Power up with smaQit')).toBeVisible();
     
     // Understand it's an SDD toolkit
     await expect(page.locator('text=/Spec Driven Development/i')).toBeVisible();
@@ -266,7 +266,7 @@ test.describe('Cross-Viewport User Journeys', () => {
     await page.goto('');
     
     // Product discovery
-    await expect(page.locator('text=smaQ\'it').first()).toBeVisible();
+    await expect(page.locator('text=smaQit').first()).toBeVisible();
     
     // Feature exploration
     await page.locator('text=/features/i').scrollIntoViewIfNeeded();
@@ -283,7 +283,7 @@ test.describe('Cross-Viewport User Journeys', () => {
     await page.goto('');
     
     // Product discovery
-    await expect(page.locator('text=smaQ\'it').first()).toBeVisible();
+    await expect(page.locator('text=smaQit').first()).toBeVisible();
     
     // Feature exploration
     await page.locator('text=/features/i').scrollIntoViewIfNeeded();
@@ -300,7 +300,7 @@ test.describe('Cross-Viewport User Journeys', () => {
     await page.goto('');
     
     // Product discovery
-    await expect(page.locator('text=smaQ\'it').first()).toBeVisible();
+    await expect(page.locator('text=smaQit').first()).toBeVisible();
     
     // Feature exploration
     await page.locator('text=/features/i').scrollIntoViewIfNeeded();

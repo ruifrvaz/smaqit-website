@@ -38,7 +38,7 @@ Define the overall page structure, sections, and responsive behavior.
 
 ## CONCERN: Hero Section
 
-Define the hero section that introduces smaQ'it with product name, tagline, and description.
+Define the hero section that introduces smaQit with product name, tagline, and description.
 
 ### User Experience
 
@@ -49,8 +49,8 @@ Define the hero section that introduces smaQ'it with product name, tagline, and 
 ### Data Models
 
 - Product Information
-  - Name: "smaQ'it"
-  - Tagline: "Power up with smaQ'it"
+  - Name: "smaQit"
+  - Tagline: "Power up with smaQit"
   - Description: "Spec Driven Development (SDD) toolkit"
   - Target Audience: "IT professionals (POs, architects, engineers, testers)"
   - License: "Open source"
@@ -112,5 +112,5 @@ Define social media icons in footer for GitHub and LinkedIn connection.
 ### API Contracts
 
 - External navigation contracts:
-  - GitHub link → Opens smaQ'it repository in new tab
+  - GitHub link → Opens smaQit repository in new tab
   - LinkedIn link → Opens creator profile in new tab

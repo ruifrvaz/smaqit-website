@@ -12,8 +12,8 @@ prompt_version: initial
 
 ### Business
 
-- [BUS-PRODUCT](../business/uc1-product.md) — UC1: Learn About smaQ'it journey
-- [BUS-FEATURES](../business/uc2-features.md) — UC2: Explore smaQ'it Capabilities journey
+- [BUS-PRODUCT](../business/uc1-product.md) — UC1: Learn About smaQit journey
+- [BUS-FEATURES](../business/uc2-features.md) — UC2: Explore smaQit Capabilities journey
 - [BUS-CONNECT](../business/uc3-connect.md) — UC3: Connect via Social Channels journey
 
 ### Functional
@@ -52,8 +52,8 @@ prompt_version: initial
 
 | Requirement ID | Source Spec | Test Case ID | Expected Outcome |
 |----------------|-------------|--------------|------------------|
-| BUS-PRODUCT-001 | business/uc1-product.md | COV-JOURNEYS-001 | Product name "smaQ'it" visible |
-| BUS-PRODUCT-002 | business/uc1-product.md | COV-JOURNEYS-002 | Tagline "Power up with smaQ'it" visible |
+| BUS-PRODUCT-001 | business/uc1-product.md | COV-JOURNEYS-001 | Product name "smaQit" visible |
+| BUS-PRODUCT-002 | business/uc1-product.md | COV-JOURNEYS-002 | Tagline "Power up with smaQit" visible |
 | BUS-PRODUCT-003 | business/uc1-product.md | COV-JOURNEYS-003 | "Spec Driven Development (SDD) toolkit" text present |
 | BUS-PRODUCT-004 | business/uc1-product.md | COV-JOURNEYS-004 | IT professionals target audience mentioned |
 | BUS-PRODUCT-005 | business/uc1-product.md | COV-JOURNEYS-005 | "Open source" text present |
@@ -64,13 +64,13 @@ prompt_version: initial
 | BUS-FEATURES-005 | business/uc2-features.md | COV-JOURNEYS-010 | Innovation/differentiation communicated |
 | BUS-CONNECT-001 | business/uc3-connect.md | COV-JOURNEYS-011 | GitHub icon visible in footer |
 | BUS-CONNECT-002 | business/uc3-connect.md | COV-JOURNEYS-012 | LinkedIn icon visible in footer |
-| BUS-CONNECT-003 | business/uc3-connect.md | COV-JOURNEYS-013 | GitHub link navigates to smaQ'it repository |
+| BUS-CONNECT-003 | business/uc3-connect.md | COV-JOURNEYS-013 | GitHub link navigates to smaQit repository |
 | BUS-CONNECT-004 | business/uc3-connect.md | COV-JOURNEYS-014 | LinkedIn link navigates to creator profile |
 | BUS-CONNECT-005 | business/uc3-connect.md | COV-JOURNEYS-015 | Social icons recognizable and clickable |
 
 ## Test Definitions
 
-### UC1: Learn About smaQ'it
+### UC1: Learn About smaQit
 
 ```gherkin
 # COV-JOURNEYS-001: Maps to BUS-PRODUCT-001
@@ -80,9 +80,9 @@ Feature: Product Identity Discovery
   So that I know what product I'm looking at
   
   Scenario: Product name is visible on landing
-    Given I navigate to the smaQ'it website
+    Given I navigate to the smaQit website
     When the page loads
-    Then I see the product name "smaQ'it" displayed prominently
+    Then I see the product name "smaQit" displayed prominently
     And the product name is visible without scrolling
 
 # COV-JOURNEYS-002: Maps to BUS-PRODUCT-002
@@ -92,19 +92,19 @@ Feature: Brand Tagline Communication
   So that I understand the brand promise
   
   Scenario: Tagline is visible on landing
-    Given I am on the smaQ'it homepage
+    Given I am on the smaQit homepage
     When the hero section loads
-    Then I see the tagline "Power up with smaQ'it"
+    Then I see the tagline "Power up with smaQit"
     And the tagline is associated with the product name
 
 # COV-JOURNEYS-003: Maps to BUS-PRODUCT-003
 Feature: Product Type Identification
   As an IT professional
-  I want to understand what type of product smaQ'it is
+  I want to understand what type of product smaQit is
   So that I can assess its relevance
   
   Scenario: Product description includes toolkit type
-    Given I am on the smaQ'it homepage
+    Given I am on the smaQit homepage
     When I read the hero section content
     Then I see text mentioning "Spec Driven Development"
     And I see text mentioning "SDD"
@@ -134,7 +134,7 @@ Feature: License Information Visibility
     Then I see the text "open source" or "Open Source"
 ```
 
-### UC2: Explore smaQ'it Capabilities
+### UC2: Explore smaQit Capabilities
 
 ```gherkin
 # COV-JOURNEYS-006: Maps to BUS-FEATURES-001
@@ -144,7 +144,7 @@ Feature: Stateful Specs Feature Discovery
   So that I understand this key capability
   
   Scenario: Stateful specs feature is visible
-    Given I am on the smaQ'it website
+    Given I am on the smaQit website
     When I scroll to the features section
     Then I see a feature titled "Stateful Specs"
     And I see a description explaining the stateful specs capability
@@ -163,7 +163,7 @@ Feature: Versioned Prompts Feature Discovery
 # COV-JOURNEYS-008: Maps to BUS-FEATURES-003
 Feature: Agile Team Positioning
   As a product owner or team lead
-  I want to understand if smaQ'it fits agile workflows
+  I want to understand if smaQit fits agile workflows
   So that I can assess team compatibility
   
   Scenario: Agile team focus is communicated
@@ -185,7 +185,7 @@ Feature: Modular Architecture Discovery
 # COV-JOURNEYS-010: Maps to BUS-FEATURES-005
 Feature: Innovation Perception
   As a visitor
-  I want to understand what makes smaQ'it different
+  I want to understand what makes smaQit different
   So that I can evaluate its unique value
   
   Scenario: Innovative approach is communicated
@@ -204,7 +204,7 @@ Feature: GitHub Link Discovery
   So that I can explore the source code
   
   Scenario: GitHub icon is visible in footer
-    Given I am on the smaQ'it website
+    Given I am on the smaQit website
     When I scroll to the footer
     Then I see a GitHub icon or link
     And the icon is recognizable as GitHub branding
@@ -226,8 +226,8 @@ Feature: GitHub Repository Navigation
   I want to click the GitHub link
   So that I can access the repository
   
-  Scenario: GitHub link navigates to smaQ'it repository
-    Given I am on the smaQ'it website
+  Scenario: GitHub link navigates to smaQit repository
+    Given I am on the smaQit website
     When I click the GitHub icon
     Then a new tab opens
     And the new tab URL contains "github.com"
@@ -272,8 +272,8 @@ Feature: Complete Visitor Journey
   Scenario: Visitor discovers product, explores features, and connects
     Given I navigate to https://ruifrvaz.github.io/smaqit-website
     When the page loads
-    Then I see the product name "smaQ'it" immediately
-    And I see the tagline "Power up with smaQ'it"
+    Then I see the product name "smaQit" immediately
+    And I see the tagline "Power up with smaQit"
     And I understand it's an SDD toolkit for IT professionals
     
     When I scroll down
@@ -289,7 +289,7 @@ Feature: Complete Visitor Journey
     And I can identify GitHub and LinkedIn options
     
     When I click the GitHub icon
-    Then I am taken to the smaQ'it repository
+    Then I am taken to the smaQit repository
     And I can explore the code and documentation
 ```
 
