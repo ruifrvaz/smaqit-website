@@ -147,7 +147,7 @@ The `public/` folder can be deployed to:
 
 - **Website:** [Coming soon]
 - **GitHub Repository:** https://github.com/ruifrvaz/smaqit
-- **LinkedIn:** https://linkedin.com/in/ruifrvaz
+- **LinkedIn:** https://www.linkedin.com/in/rui-vaz-43b13842
 
 ---
 
