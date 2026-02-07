@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Validation tests for smaQit website",
   "scripts": {
+    "serve": "npx http-server public -p 8080 -c-1",
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
@@ -12,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@playwright/test": "^1.40.0"
+    "@playwright/test": "^1.40.0",
+    "http-server": "^14.1.1"
   }
 }
