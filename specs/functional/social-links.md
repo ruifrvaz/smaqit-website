@@ -51,7 +51,7 @@ Visitor discovers social icons at the bottom of the page, hovers over desired ic
 4. Icon displays hover state (visual feedback)
 5. Visitor clicks on chosen social icon
 6. Browser opens link in new tab
-7. Visitor arrives at smaQ'it GitHub repository or creator's LinkedIn profile
+7. Visitor arrives at smaQit GitHub repository or creator's LinkedIn profile
 
 ### Error Handling
 
@@ -141,7 +141,7 @@ Requirements use format: `FUN-SOCIAL-[NNN]`
 - [x] FUN-SOCIAL-004: LinkedIn icon is visually recognizable as LinkedIn brand
 - [x] FUN-SOCIAL-005: GitHub icon displays hover state when mouse cursor hovers over it
 - [x] FUN-SOCIAL-006: LinkedIn icon displays hover state when mouse cursor hovers over it
-- [x] FUN-SOCIAL-007: Clicking GitHub icon opens smaQ'it GitHub repository in new tab
+- [x] FUN-SOCIAL-007: Clicking GitHub icon opens smaQit GitHub repository in new tab
 - [x] FUN-SOCIAL-008: Clicking LinkedIn icon opens creator LinkedIn profile in new tab
 - [x] FUN-SOCIAL-009: Links open with target="_blank" attribute
 - [x] FUN-SOCIAL-010: Links include rel="noopener noreferrer" for security

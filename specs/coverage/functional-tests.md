@@ -200,7 +200,7 @@ Feature: Product Name Display
   Scenario: Hero section displays product name prominently
     Given I am on the homepage
     When I look at the hero section
-    Then I see "smaQ'it" displayed prominently
+    Then I see "smaQit" displayed prominently
     And the product name is styled for emphasis
 
 # COV-FUNCTIONAL-012: Maps to FUN-HERO-002
@@ -208,7 +208,7 @@ Feature: Tagline Display
   
   Scenario: Hero section displays tagline
     Given I am viewing the hero section
-    Then I see the tagline "Power up with smaQ'it"
+    Then I see the tagline "Power up with smaQit"
 
 # COV-FUNCTIONAL-013: Maps to FUN-HERO-003
 Feature: Product Description Display
@@ -471,9 +471,9 @@ Feature: Mobile Touch Interaction
 Requirements use format: `COV-FUNCTIONAL-[NNN]`
 
 - [!] COV-FUNCTIONAL-001 through COV-FUNCTIONAL-040: Individual functional requirement tests execute (32/40 passed, 8 failed due to strict mode violations)
-- [!] COV-FUNCTIONAL-041: All layout tests pass in mobile viewport (375px) — strict mode violation on text=smaQ'it
-- [!] COV-FUNCTIONAL-042: All layout tests pass in tablet viewport (768px) — strict mode violation on text=smaQ'it
-- [!] COV-FUNCTIONAL-043: All layout tests pass in desktop viewport (1440px) — strict mode violation on text=smaQ'it
+- [!] COV-FUNCTIONAL-041: All layout tests pass in mobile viewport (375px) — strict mode violation on text=smaQit
+- [!] COV-FUNCTIONAL-042: All layout tests pass in tablet viewport (768px) — strict mode violation on text=smaQit
+- [!] COV-FUNCTIONAL-043: All layout tests pass in desktop viewport (1440px) — strict mode violation on text=smaQit
 - [x] COV-FUNCTIONAL-044: All tests pass in Chromium browser (32/40 tests passed)
 - [ ] COV-FUNCTIONAL-045: All tests pass in Firefox browser (not yet tested)
 - [ ] COV-FUNCTIONAL-046: All tests pass in WebKit (Safari) browser (not yet tested)

@@ -26,8 +26,8 @@ prompt_version: initial
 ### Included
 
 - Product logo/banner image display as first visual element
-- Product name ("smaQ'it") display
-- Tagline ("Power up with smaQ'it") display
+- Product name ("smaQit") display
+- Tagline ("Power up with smaQit") display
 - Product description (SDD toolkit, target audience, open source)
 - Visual design conveying empowering energy
 - Typography and layout for hero content
@@ -43,14 +43,14 @@ prompt_version: initial
 
 ### Overview
 
-Visitor immediately sees the hero section upon landing, understanding what smaQ'it is and its value proposition within 10 seconds.
+Visitor immediately sees the hero section upon landing, understanding what smaQit is and its value proposition within 10 seconds.
 
 ### Steps
 
 1. Page loads with hero section occupying initial viewport
-2. Visitor sees smaQ'it logo/banner image as the first visual element
-3. Visitor sees product name "smaQ'it" prominently displayed (via image or text)
-4. Visitor reads tagline "Power up with smaQ'it"
+2. Visitor sees smaQit logo/banner image as the first visual element
+3. Visitor sees product name "smaQit" prominently displayed (via image or text)
+4. Visitor reads tagline "Power up with smaQit"
 5. Visitor reads product description explaining it's an SDD toolkit
 6. Visitor identifies target audience (IT professionals)
 7. Visitor recognizes product is open source
@@ -78,8 +78,8 @@ Visitor immediately sees the hero section upon landing, understanding what smaQ'
 
 | Attribute | Type | Description | Constraints |
 |-----------|------|-------------|-------------|
-| name | Text | Product name | Required; value: "smaQ'it" |
-| tagline | Text | Product tagline | Required; value: "Power up with smaQ'it" |
+| name | Text | Product name | Required; value: "smaQit" |
+| tagline | Text | Product tagline | Required; value: "Power up with smaQit" |
 | description | Text | Product description | Required; includes toolkit type, audience, license |
 | toolkitType | Text | Type of toolkit | Required; value: "Spec Driven Development (SDD) toolkit" |
 | targetAudience | Text | Intended users | Required; value: "IT professionals (POs, architects, engineers, testers)" |
@@ -97,17 +97,17 @@ Visitor immediately sees the hero section upon landing, understanding what smaQ'
 
 Requirements use format: `FUN-HERO-[NNN]`
 
-- [x] FUN-HERO-001: Hero section displays smaQ'it logo/banner image as the first visual element
+- [x] FUN-HERO-001: Hero section displays smaQit logo/banner image as the first visual element
 - [x] FUN-HERO-002: Logo/banner image loads from "assets/banner.png" path
-- [x] FUN-HERO-003: Logo/banner image includes alt text "smaQ'it - Spec Driven Development toolkit" for accessibility
+- [x] FUN-HERO-003: Logo/banner image includes alt text "smaQit - Spec Driven Development toolkit" for accessibility
 - [x] FUN-HERO-004: Logo/banner image is prominently sized and positioned at top of hero section
-- [x] FUN-HERO-005: Hero section displays product name "smaQ'it" prominently (via image or text)
-- [x] FUN-HERO-006: Hero section displays tagline "Power up with smaQ'it"
+- [x] FUN-HERO-005: Hero section displays product name "smaQit" prominently (via image or text)
+- [x] FUN-HERO-006: Hero section displays tagline "Power up with smaQit"
 - [x] FUN-HERO-007: Hero section displays description identifying product as "Spec Driven Development (SDD) toolkit"
 - [x] FUN-HERO-008: Hero section displays target audience as "IT professionals (POs, architects, engineers, testers)"
 - [x] FUN-HERO-009: Hero section displays "open source" licensing information
 - [x] FUN-HERO-010: Hero section is fully visible in viewport on initial page load without scrolling
-- [x] FUN-HERO-012: Hero section displays fallback text "smaQ'it" when logo/banner image fails to load
+- [x] FUN-HERO-012: Hero section displays fallback text "smaQit" when logo/banner image fails to load
 - [x] FUN-HERO-013: Hero section content remains readable when custom fonts fail to load
 
 ### Untestable Criteria

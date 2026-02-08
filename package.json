@@ -1,7 +1,7 @@
 {
   "name": "smaqit-website-tests",
   "version": "1.0.0",
-  "description": "Validation tests for smaQ'it website",
+  "description": "Validation tests for smaQit website",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",

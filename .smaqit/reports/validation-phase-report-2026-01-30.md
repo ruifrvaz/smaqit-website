@@ -103,7 +103,7 @@ specs/coverage/user-journeys-tests.md
 - Performance: 2 tests (page load < 2s, resource efficiency)
 
 **User Journey Tests (COV-JOURNEYS):**
-- UC1 (Learn About smaQ'it): 5 tests (product discovery, description, license)
+- UC1 (Learn About smaQit): 5 tests (product discovery, description, license)
 - UC2 (Explore Capabilities): 5 tests (feature exploration, innovation communication)
 - UC3 (Connect via Social): 5 tests (social icon discovery, navigation)
 - Complete Journeys: 4 tests (full visitor journey + cross-viewport validation)
@@ -174,12 +174,12 @@ sed -i "s/page\.goto('\/')/page.goto('')/g" tests/*.spec.js
 | Category | Failed Tests | Root Cause |
 |----------|--------------|------------|
 | **Strict Mode Violations** | **8/17** | Multiple elements match selector (needs `.first()` or more specific selector) |
-| Page Layout - Mobile/Tablet/Desktop adaptation | 3 | `text=smaQ'it` matches 3 elements (heading, tagline, footer) |
-| Page Layout - JavaScript disabled | 1 | `text=smaQ'it` strict mode violation |
-| Hero Section - Font fallback | 1 | `text=smaQ'it` strict mode violation |
+| Page Layout - Mobile/Tablet/Desktop adaptation | 3 | `text=smaQit` matches 3 elements (heading, tagline, footer) |
+| Page Layout - JavaScript disabled | 1 | `text=smaQit` strict mode violation |
+| Hero Section - Font fallback | 1 | `text=smaQit` strict mode violation |
 | Hero Section - Target audience | 1 | `text=/agile team/i` matches multiple elements |
 | Hero Section - Open source info | 1 | `text=/open source/i` matches 2 elements |
-| Infrastructure - index.html root | 1 | `text=smaQ'it` strict mode violation |
+| Infrastructure - index.html root | 1 | `text=smaQit` strict mode violation |
 | **JavaScript/Asset Tests** | **3/17** | Test implementation issues |
 | Frontend Stack - JS disabled | 1 | `javaScriptEnabled: false` not working with `page.goto('/')` |
 | Deployment - Public directory | 1 | `/style.css` should be `style.css` (absolute vs relative path) |
@@ -266,7 +266,7 @@ $ npx playwright test --project=chromium-desktop  # ✅ 83 passed, 17 failed (15
 
 | Requirement ID | Layer | Failure Reason | Recommended Fix |
 |----------------|-------|----------------|----------------|
-| FUN-LAYOUT-004 | Functional | Strict mode: `text=smaQ'it` matches 3 elements | Use `.first()` or `role=heading` |
+| FUN-LAYOUT-004 | Functional | Strict mode: `text=smaQit` matches 3 elements | Use `.first()` or `role=heading` |
 | FUN-LAYOUT-005, -006, -007 | Functional | Viewport adaptation tests timing out | Increase timeout or check responsive selectors |
 | FUN-LAYOUT-008 | Functional | JS-disabled test + strict mode | Fix selector + verify JS-disabled navigation |
 | FUN-LAYOUT-010 | Functional | Scroll test strict mode violation | Use more specific selector for scroll validation |
@@ -355,7 +355,7 @@ $ npx playwright test --project=chromium-desktop  # ✅ 83 passed, 17 failed (15
 
 **Severity:** 🟡 Minor — 17 tests affected  
 **Description:** Some test selectors match multiple elements, causing strict mode violations  
-**Root Cause:** Broad text selectors (e.g., `text=smaQ'it`) match multiple page elements  
+**Root Cause:** Broad text selectors (e.g., `text=smaQit`) match multiple page elements  
 **Recommended Fix:**
 ```javascript
 // Before:
@@ -574,7 +574,7 @@ Running 99 tests using 8 workers
 | Infrastructure Tests | 10 | 9 | 1 | 90% |
 | Deployment Pipeline Tests | 7 | 6 | 1 | 86% |
 | Performance Tests | 2 | 1 | 1 | 50% |
-| UC1: Learn About smaQ'it | 5 | 3 | 2 | 60% |
+| UC1: Learn About smaQit | 5 | 3 | 2 | 60% |
 | UC2: Explore Capabilities | 5 | 4 | 1 | 80% |
 | UC3: Connect via Social | 5 | 5 | 0 | 100% |
 | Complete User Journey | 4 | 3 | 1 | 75% |

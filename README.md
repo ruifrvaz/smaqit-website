@@ -1,6 +1,6 @@
-# smaQ'it Website
+# smaQit Website
 
-**Power up with smaQ'it** — A Spec Driven Development (SDD) toolkit for IT professionals.
+**Power up with smaQit** — A Spec Driven Development (SDD) toolkit for IT professionals.
 
 This repository contains the official landing page for smaQit, built with simplicity and performance in mind.
 
@@ -57,7 +57,7 @@ smaqit-website/
 │   ├── business/        # Business layer specs
 │   ├── functional/      # Functional layer specs
 │   └── stack/           # Stack layer specs
-├── .smaqit/             # smaQ'it framework files
+├── .smaqit/             # smaQit framework files
 │   ├── reports/         # Development reports
 │   └── templates/       # Specification templates
 └── README.md            # This file
@@ -147,32 +147,32 @@ The `public/` folder can be deployed to:
 
 - **Website:** [Coming soon]
 - **GitHub Repository:** https://github.com/ruifrvaz/smaqit
-- **LinkedIn:** https://linkedin.com/in/ruifrvaz
+- **LinkedIn:** https://www.linkedin.com/in/rui-vaz-43b13842
 
 ---
 
 ## 📄 License
 
-Open source. See the main smaQ'it repository for license details.
+Open source. See the main smaQit repository for license details.
 
 ---
 
 ## 🤝 Contributing
 
-This website is part of the smaQ'it Spec Driven Development workflow. Contributions should:
+This website is part of the smaQit Spec Driven Development workflow. Contributions should:
 
 1. Start with Business specifications
 2. Create corresponding Functional specifications
 3. Define Stack requirements
 4. Implement according to specs
 
-See the main smaQ'it documentation for the full workflow.
+See the main smaQit documentation for the full workflow.
 
 ---
 
 ## 📝 Specification Traceability
 
-This website was built following the smaQ'it methodology. All implementation decisions trace back to specifications:
+This website was built following the smaQit methodology. All implementation decisions trace back to specifications:
 
 - **Business Specs:** `specs/business/` (UC1-PRODUCT, UC2-FEATURES, UC3-CONNECT)
 - **Functional Specs:** `specs/functional/` (page-layout, hero-section, features-section, social-links)
@@ -182,4 +182,4 @@ Every HTML/CSS/JS file includes traceability comments linking implementation to 
 
 ---
 
-**Built with ❤️ using smaQ'it Spec Driven Development**
+**Built with ❤️ using smaQit Spec Driven Development**

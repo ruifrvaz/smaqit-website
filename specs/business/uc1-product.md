@@ -9,7 +9,7 @@ modified: 2026-02-04
 prompt_version: initial
 ---
 
-# UC1-PRODUCT: Learn About smaQ'it
+# UC1-PRODUCT: Learn About smaQit
 
 ## Scope
 
@@ -31,7 +31,7 @@ prompt_version: initial
 
 | Actor | Description | Goals |
 |-------|-------------|-------|
-| IT Professional | Product Owners, Architects, Engineers, Testers exploring development tools | Quickly understand what smaQ'it is and whether it's relevant to their work |
+| IT Professional | Product Owners, Architects, Engineers, Testers exploring development tools | Quickly understand what smaQit is and whether it's relevant to their work |
 | Visitor | Any person landing on the website | Grasp the product identity and value proposition within seconds |
 
 ## Success Metrics
@@ -39,22 +39,22 @@ prompt_version: initial
 | Metric | Target | Measurement |
 |--------|--------|-------------|
 | Value Proposition Clarity | Visitor understands product purpose within 10 seconds | User testing feedback |
-| Brand Recognition | Visitor recalls "smaQ'it" and "Power up" association | Survey or recall test |
+| Brand Recognition | Visitor recalls "smaQit" and "Power up" association | Survey or recall test |
 
 ## Use Case
 
 ### Preconditions
 
-- Visitor has navigated to the smaQ'it website landing page
+- Visitor has navigated to the smaQit website landing page
 - Page content is fully loaded and visible
 
 ### Main Flow
 
-1. Visitor sees the smaQ'it brand name and logo prominently displayed
-2. Visitor reads the tagline "Power up with smaQ'it"
-3. Visitor understands smaQ'it is a Spec Driven Development (SDD) toolkit
+1. Visitor sees the smaQit brand name and logo prominently displayed
+2. Visitor reads the tagline "Power up with smaQit"
+3. Visitor understands smaQit is a Spec Driven Development (SDD) toolkit
 4. Visitor recognizes the product is designed for IT professionals
-5. Visitor identifies smaQ'it as an open source solution
+5. Visitor identifies smaQit as an open source solution
 
 ### Alternative Flows
 
@@ -67,7 +67,7 @@ prompt_version: initial
 
 ### Postconditions
 
-- Visitor can articulate what smaQ'it is (SDD toolkit)
+- Visitor can articulate what smaQit is (SDD toolkit)
 - Visitor understands the target audience (IT professionals)
 - Visitor knows the product is open source
 
@@ -75,12 +75,12 @@ prompt_version: initial
 
 Requirements use format: `BUS-PRODUCT-[NNN]`
 
-- [x] BUS-PRODUCT-001: Visitor sees the product name "smaQ'it" displayed prominently on the page
-- [x] BUS-PRODUCT-002: Visitor sees the smaQ'it visual brand identity (logo/image) as the first element when landing on the page
-- [x] BUS-PRODUCT-003: Visitor sees the tagline "Power up with smaQ'it" associated with the product
-- [x] BUS-PRODUCT-004: Visitor can identify smaQ'it as a Spec Driven Development (SDD) toolkit
+- [x] BUS-PRODUCT-001: Visitor sees the product name "smaQit" displayed prominently on the page
+- [x] BUS-PRODUCT-002: Visitor sees the smaQit visual brand identity (logo/image) as the first element when landing on the page
+- [x] BUS-PRODUCT-003: Visitor sees the tagline "Power up with smaQit" associated with the product
+- [x] BUS-PRODUCT-004: Visitor can identify smaQit as a Spec Driven Development (SDD) toolkit
 - [x] BUS-PRODUCT-005: Visitor understands the product targets IT professionals (POs, architects, engineers, testers)
-- [x] BUS-PRODUCT-006: Visitor can identify smaQ'it as an open source solution
+- [x] BUS-PRODUCT-006: Visitor can identify smaQit as an open source solution
 
 ### Untestable Criteria
 
