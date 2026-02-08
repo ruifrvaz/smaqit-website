@@ -27,13 +27,14 @@
     <!-- HERO SECTION -->
     <!-- Traceability: FUN-LAYOUT-002, FUN-HERO-007 (Hero visible on load) -->
     <header id="hero" class="hero-section">
+        <!-- Traceability: FUN-HERO-001, FUN-HERO-002, FUN-HERO-003 (Logo/banner image as first visual element) -->
+        <!-- Traceability: BUS-PRODUCT-001, BUS-PRODUCT-002 (Product name and visual brand identity) -->
+        <img src="assets/banner.png" 
+             alt="smaQ'it - Spec Driven Development toolkit" 
+             class="product-logo"
+             onerror="this.style.display='none'; document.querySelector('.product-name-fallback').style.display='block';">
+        
         <div class="container">
-            <!-- Traceability: FUN-HERO-001, FUN-HERO-002, FUN-HERO-003 (Logo/banner image as first visual element) -->
-            <!-- Traceability: BUS-PRODUCT-001, BUS-PRODUCT-002 (Product name and visual brand identity) -->
-            <img src="assets/banner.png" 
-                 alt="smaQ'it - Spec Driven Development toolkit" 
-                 class="product-logo"
-                 onerror="this.style.display='none'; document.querySelector('.product-name-fallback').style.display='block';">
             <h1 class="product-name-fallback" style="display: none;">smaQ'it</h1>
             
             <!-- Traceability: FUN-HERO-006 (Tagline displayed) -->
