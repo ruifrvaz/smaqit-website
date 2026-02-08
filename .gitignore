@@ -8,7 +8,8 @@ playwright/.cache/
 
 # Test artifacts
 test-results.json
-*.png
+/test-results/**/*.png
+/playwright-report/**/*.png
 *.webm
 
 # Debug scripts
