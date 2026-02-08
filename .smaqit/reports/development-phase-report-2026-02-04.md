@@ -50,7 +50,7 @@ Container border implementation reverted due to not meeting expectations. Affect
 **Implemented:** 2026-02-04T12:30:00Z
 
 #### Changes Implemented:
-- **BUS-PRODUCT-001**: Product name "smaQ'it" displayed prominently (via logo image)
+- **BUS-PRODUCT-001**: Product name "smaQit" displayed prominently (via logo image)
 - **BUS-PRODUCT-002**: Visual brand identity (logo/banner image) as first element ✅
 
 #### Traceability:
@@ -93,10 +93,10 @@ Container border implementation reverted due to not meeting expectations. Affect
 #### Changes Implemented (Retained):
 - **FUN-HERO-001**: Logo/banner image as first visual element ✅
 - **FUN-HERO-002**: Image loads from "assets/banner.png" ✅
-- **FUN-HERO-003**: Alt text "smaQ'it - Spec Driven Development toolkit" ✅
+- **FUN-HERO-003**: Alt text "smaQit - Spec Driven Development toolkit" ✅
 - **FUN-HERO-004**: Logo prominently sized and positioned ✅
 - **FUN-HERO-005**: Product name displayed (via image) ✅
-- **FUN-HERO-006**: Tagline "Power up with smaQ'it" displayed ✅
+- **FUN-HERO-006**: Tagline "Power up with smaQit" displayed ✅
 - **FUN-HERO-012**: Fallback text displays on image load failure ✅
 
 #### Changes Reverted:
@@ -173,7 +173,7 @@ Container border implementation reverted due to not meeting expectations. Affect
 ### Modified Files (Current State)
 
 1. **`public/index.html`** ✅ RETAINED
-   - Replaced `<h1 class="product-name">smaQ'it</h1>` with `<img src="assets/banner.png" ...>`
+   - Replaced `<h1 class="product-name">smaQit</h1>` with `<img src="assets/banner.png" ...>`
    - Added fallback `<h1 class="product-name-fallback">` with display:none
    - Added onerror handler for image load failure
    - Updated traceability comments

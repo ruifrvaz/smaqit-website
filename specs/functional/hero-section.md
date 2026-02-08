@@ -60,7 +60,7 @@ Visitor immediately sees the hero section upon landing, understanding what smaQi
 
 | Condition | Behavior |
 |-----------|----------|
-| Logo/banner image fails to load | Display fallback text "smaQ'it" with alt text for accessibility |
+| Logo/banner image fails to load | Display fallback text "smaQit" with alt text for accessibility |
 | Custom fonts fail to load | Fallback to system fonts maintaining readability |
 | Images fail to load | Text content remains accessible and functional |
 
@@ -71,7 +71,7 @@ Visitor immediately sees the hero section upon landing, understanding what smaQi
 | Attribute | Type | Description | Constraints |
 |-----------|------|-------------|-------------|
 | logoImageUrl | Text | Path to logo/banner image | Required; value: "assets/banner.png" |
-| logoAltText | Text | Accessibility text for logo | Required; value: "smaQ'it - Spec Driven Development toolkit" |
+| logoAltText | Text | Accessibility text for logo | Required; value: "smaQit - Spec Driven Development toolkit" |
 | imageFormat | Text | Image file format | Required; value: "PNG" |
 
 ### ProductInfo
