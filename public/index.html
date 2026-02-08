@@ -28,13 +28,18 @@
     <!-- Traceability: FUN-LAYOUT-002, FUN-HERO-007 (Hero visible on load) -->
     <header id="hero" class="hero-section">
         <div class="container">
-            <!-- Traceability: FUN-HERO-001 (Product name prominently displayed) -->
-            <h1 class="product-name">smaQ'it</h1>
+            <!-- Traceability: FUN-HERO-001, FUN-HERO-002, FUN-HERO-003 (Logo/banner image as first visual element) -->
+            <!-- Traceability: BUS-PRODUCT-001, BUS-PRODUCT-002 (Product name and visual brand identity) -->
+            <img src="assets/banner.png" 
+                 alt="smaQ'it - Spec Driven Development toolkit" 
+                 class="product-logo"
+                 onerror="this.style.display='none'; document.querySelector('.product-name-fallback').style.display='block';">
+            <h1 class="product-name-fallback" style="display: none;">smaQ'it</h1>
             
-            <!-- Traceability: FUN-HERO-002 (Tagline displayed) -->
+            <!-- Traceability: FUN-HERO-006 (Tagline displayed) -->
             <p class="tagline">Power up with smaQ'it</p>
             
-            <!-- Traceability: FUN-HERO-003, FUN-HERO-004, FUN-HERO-005 (Product description) -->
+            <!-- Traceability: FUN-HERO-007, FUN-HERO-008, FUN-HERO-009 (Product description) -->
             <div class="product-description">
                 <p class="description-main">
                     A <strong>Spec Driven Development (SDD) toolkit</strong> for IT professionals
@@ -127,7 +132,7 @@
                 </a>
 
                 <!-- Traceability: FUN-SOCIAL-004, FUN-SOCIAL-008, FUN-SOCIAL-009, FUN-SOCIAL-010 (LinkedIn icon and link) -->
-                <a href="https://www.linkedin.com/in/ruifrvaz" 
+                <a href="https://linkedin.com/in/ruifrvaz" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="social-link" 

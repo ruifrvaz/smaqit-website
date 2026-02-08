@@ -1,10 +1,11 @@
 ---
 id: FUN-SOCIAL
-status: validated
+status: implemented
 created: 2026-01-22
-implemented: 2026-01-22T23:30:00Z
+implemented: 2026-02-04T12:30:00Z
 deployed: 2026-01-30T00:00:00Z
 validated: 2026-01-30T23:25:24Z
+modified: 2026-02-04
 prompt_version: initial
 ---
 

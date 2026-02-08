@@ -72,21 +72,33 @@ body {
 /* ===================================
    HERO SECTION
    =================================== */
-/* Traceability: FUN-HERO-007 (Hero visible on load) */
+/* Traceability: FUN-HERO-010 (Hero visible on load) */
 .hero-section {
     min-height: 100vh;
     /* Traceability: STK-FRONTEND-009 (Flexbox for responsive layout) */
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-dark) 100%);
+    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-dark) 100%);  
     color: var(--color-bg);
     padding: var(--spacing-xl) var(--spacing-md);
 }
 
-/* Traceability: FUN-HERO-001, FUN-HERO-006 (Product name, bold typography) */
-.product-name {
+/* Traceability: FUN-HERO-001, FUN-HERO-002, FUN-HERO-004 (Logo/banner image) */
+.product-logo {
+    width: 100%;
+    height: auto;
+    margin-bottom: var(--spacing-md);
+    display: block;
+    /* Ensure crisp rendering */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+/* Traceability: FUN-HERO-011, FUN-HERO-005 (Fallback for failed image load) */
+.product-name-fallback {
     font-size: clamp(3rem, 8vw, 6rem);
     font-weight: var(--font-weight-black);
     letter-spacing: -0.02em;
@@ -99,7 +111,20 @@ body {
     background-clip: text;
 }
 
-/* Traceability: FUN-HERO-002 (Tagline) */
+/* Legacy product-name class (kept for compatibility) */
+.product-name {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: var(--font-weight-black);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-sm);
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Traceability: FUN-HERO-006 (Tagline) */
 .tagline {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: var(--font-weight-bold);
@@ -108,7 +133,7 @@ body {
     letter-spacing: 0.02em;
 }
 
-/* Traceability: FUN-HERO-003, FUN-HERO-004, FUN-HERO-005 (Product description) */
+/* Traceability: FUN-HERO-007, FUN-HERO-008, FUN-HERO-009 (Product description) */
 .product-description {
     max-width: 800px;
     margin: 0 auto;
