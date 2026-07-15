@@ -2,30 +2,22 @@
 id: COV-[CONCEPT]
 status: draft
 created: [TIMESTAMP]
-prompt_version: [GIT_HASH]
 ---
 
 # [CONCEPT_NAME]
 
 ## References
 
-<!-- References establish traceability and coherence, not requirement derivation -->
-<!-- Coverage specs read ALL upstream layers to ensure complete verification -->
-
 ### Business
-
 - [BUS-CONCEPT](../business/[FILENAME].md) — [Business requirement being verified]
 
 ### Functional
-
 - [FUN-CONCEPT](../functional/[FILENAME].md) — [Functional behavior being verified]
 
 ### Stack
-
 - [STK-CONCEPT](../stack/[FILENAME].md) — [Technology constraint being verified]
 
 ### Infrastructure
-
 - [INF-CONCEPT](../infrastructure/[FILENAME].md) — [Infrastructure requirement being verified]
 
 ## Scope
@@ -40,8 +32,6 @@ prompt_version: [GIT_HASH]
 
 ## Verification Requirements
 
-<!-- User input: test environment, SLAs, security requirements -->
-
 | Category | Requirement | Target |
 |----------|-------------|--------|
 | Test Environment | [Where tests execute] | [Environment specification] |
@@ -50,8 +40,6 @@ prompt_version: [GIT_HASH]
 | Integration | [Integration point to verify] | [Expected behavior] |
 
 ## Coverage Map
-
-<!-- Requirement ID → Test Case ID → Expected Outcome -->
 
 | Requirement ID | Source Spec | Test Case ID | Expected Outcome |
 |----------------|-------------|--------------|------------------|
@@ -62,14 +50,12 @@ prompt_version: [GIT_HASH]
 
 ## Test Definitions
 
-<!-- Full Gherkin scenarios for each test case -->
-
 ### Integration Tests
 
 ```gherkin
 # COV-[CONCEPT]-001: Maps to [SOURCE_REQUIREMENT_ID]
 Feature: [Feature Name]
-  
+
   Scenario: [Scenario description]
     Given [precondition]
     When [action]
@@ -81,7 +67,7 @@ Feature: [Feature Name]
 ```gherkin
 # COV-[CONCEPT]-002: Maps to [SOURCE_REQUIREMENT_ID]
 Feature: [Feature Name]
-  
+
   Scenario: [Scenario description]
     Given [precondition]
     And [additional context]
@@ -95,7 +81,7 @@ Feature: [Feature Name]
 ```gherkin
 # COV-[CONCEPT]-003: Maps to [SOURCE_REQUIREMENT_ID]
 Feature: [Performance Feature]
-  
+
   Scenario: [Performance scenario]
     Given [load conditions]
     When [operation under test]
@@ -108,7 +94,7 @@ Feature: [Performance Feature]
 ```gherkin
 # COV-[CONCEPT]-004: Maps to [SOURCE_REQUIREMENT_ID]
 Feature: [Security Feature]
-  
+
   Scenario: [Security scenario]
     Given [security context]
     When [potentially malicious action]
@@ -120,7 +106,7 @@ Feature: [Security Feature]
 ```gherkin
 # COV-[CONCEPT]-005: Maps to [SOURCE_REQUIREMENT_ID]
 Feature: [Business Feature]
-  
+
   Scenario: [Acceptance scenario]
     Given [business context]
     When [user completes workflow]
@@ -129,15 +115,11 @@ Feature: [Business Feature]
 
 ## Untestable Criteria
 
-<!-- Reference upstream flagged criteria with verification decision -->
-
 | Requirement | Source | Reason | Verification Decision |
 |-------------|--------|--------|----------------------|
 | [REQUIREMENT_ID] | [layer/file.md](../layer/file.md) | [Why untestable] | [Manual review / Deferred / Proxy metric] |
 
 ## Coverage Summary
-
-<!-- Pre-execution mapping: requirements to tests -->
 
 | Layer | Total Requirements | Mapped to Tests | Untestable | Coverage % |
 |-------|-------------------|-----------------|------------|------------|
@@ -167,4 +149,4 @@ If any criterion cannot be automatically validated, flag it:
 
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit [SMAQIT_VERSION]*

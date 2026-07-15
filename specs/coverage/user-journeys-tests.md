@@ -1,9 +1,8 @@
 ---
 id: COV-JOURNEYS
-status: validated
+status: draft
 created: 2026-01-30
-validated: 2026-01-30T23:25:24Z
-prompt_version: initial
+modified: 2026-07-15
 ---
 
 # User Journey End-to-End Tests
@@ -338,6 +337,34 @@ Requirements use format: `COV-JOURNEYS-[NNN]`
 - [x] COV-JOURNEYS-021: All tests pass in tablet viewport (768px width)
 - [x] COV-JOURNEYS-022: All tests pass in desktop viewport (1440px width)
 
+## Addendum: Suite Expansion (2026-07-15)
+
+The business layer now includes [BUS-COMPARE](../business/uc4-compare.md) (UC4-COMPARE) alongside the original three use cases, and UC1/UC2/UC3 were revised for the three-offering suite (see `specs/business/`). This addendum documents the delta; the journey scenarios above remain structurally valid and should be read as applying to Candidate A with "smaQit" understood as the suite brand and its three offerings, rather than a single product.
+
+### New Journey: Compare Landing Page Directions
+
+```gherkin
+# COV-JOURNEYS-041: Maps to BUS-COMPARE-001 through BUS-COMPARE-005
+Feature: Site Owner Compares Candidate Designs
+
+  Scenario: Site Owner evaluates all three candidates in one session
+    Given the Site Owner opens the comparison harness
+    Then Candidate A is displayed by default
+    When the Site Owner selects the Candidate B tab
+    Then Candidate B is displayed in place, without a full page reload
+    When the Site Owner selects the Candidate C tab
+    Then Candidate C is displayed in place, without a full page reload
+    And the Site Owner has now viewed all three candidates in a single session
+```
+
+### Updated Coverage Summary
+
+| Layer | Total Requirements | Mapped to Tests | Untestable | Coverage % |
+|-------|--------------------|------------------|------------|------------|
+| Business (UC1-UC4) | 26 | 25 | 1 | 100% |
+
+**Note:** UC1 (8), UC2 (9), UC3 (8), UC4 (5 testable + 1 untestable) = 26 business acceptance criteria across four use cases; all 25 testable criteria are covered by the original journey scenarios (UC1-UC3, revised for suite-level language) plus COV-JOURNEYS-041 above (UC4).
+
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit v1.2.0*

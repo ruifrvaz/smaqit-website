@@ -2,7 +2,6 @@
 id: BUS-[CONCEPT]
 status: draft
 created: [TIMESTAMP]
-prompt_version: [GIT_HASH]
 ---
 
 # UC[N]-[CONCEPT]: [USE_CASE_NAME]
@@ -83,4 +82,4 @@ If any criterion cannot be automatically validated, flag it:
 
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit [SMAQIT_VERSION]*

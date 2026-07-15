@@ -1,9 +1,8 @@
 ---
 id: COV-FUNCTIONAL
-status: validated
+status: draft
 created: 2026-01-30
-validated: 2026-01-30T23:25:24Z
-prompt_version: initial
+modified: 2026-07-15
 ---
 
 # Functional Acceptance Tests
@@ -12,18 +11,20 @@ prompt_version: initial
 
 ### Functional
 
-- [FUN-LAYOUT](../functional/page-layout.md) — Page structure and responsive behavior
+- [FUN-LAYOUT](../functional/page-layout.md) — Page structure and responsive behavior (Candidate A)
 - [FUN-HERO](../functional/hero-section.md) — Hero section content and layout
-- [FUN-FEATURES](../functional/features-section.md) — Features section grid and content
-- [FUN-SOCIAL](../functional/social-links.md) — Social links interaction and navigation
+- [FUN-FEATURES](../functional/features-section.md) — Three Toolkits section grid and content
+- [FUN-SOCIAL](../functional/social-links.md) — Social/repository links interaction and navigation
+- [FUN-COMPARE](../functional/preview-comparison.md) — Comparison harness banner and candidate switching
 
 ## Scope
 
 ### Included
 
-- Functional behavior validation for all page components
+- Functional behavior validation for all page components of Candidate A, the fully-specified layout
+- Comparison harness behavior validation (applies across all three candidates)
 - Responsive layout testing across viewports
-- Interactive element behavior (hover, click, scroll)
+- Interactive element behavior (hover, click, scroll, tab-switch)
 - Content rendering and accessibility
 - Browser compatibility verification
 
@@ -31,6 +32,7 @@ prompt_version: initial
 
 - Business use case journeys (covered in COV-JOURNEYS)
 - Technical stack validation (covered in COV-TECHNICAL)
+- Internal section-by-section behavior of Candidates B and C (excluded from FUN-COMPARE scope; not decomposed into testable functional specs until a candidate is chosen)
 - Visual design assessment (subjective criteria marked untestable)
 - Performance benchmarks (covered in COV-TECHNICAL)
 
@@ -47,441 +49,204 @@ prompt_version: initial
 
 | Requirement ID | Source Spec | Test Case ID | Expected Outcome |
 |----------------|-------------|--------------|------------------|
-| FUN-LAYOUT-001 | functional/page-layout.md | COV-FUNCTIONAL-001 | Three sections in order |
-| FUN-LAYOUT-002 | functional/page-layout.md | COV-FUNCTIONAL-002 | Hero visible on load |
-| FUN-LAYOUT-003 | functional/page-layout.md | COV-FUNCTIONAL-003 | Page loads within 2 seconds |
-| FUN-LAYOUT-004 | functional/page-layout.md | COV-FUNCTIONAL-004 | Smooth scroll behavior |
-| FUN-LAYOUT-005 | functional/page-layout.md | COV-FUNCTIONAL-005 | Mobile responsive layout |
-| FUN-LAYOUT-006 | functional/page-layout.md | COV-FUNCTIONAL-006 | Tablet responsive layout |
-| FUN-LAYOUT-007 | functional/page-layout.md | COV-FUNCTIONAL-007 | Desktop responsive layout |
-| FUN-LAYOUT-008 | functional/page-layout.md | COV-FUNCTIONAL-008 | Functions without JavaScript |
-| FUN-LAYOUT-009 | functional/page-layout.md | COV-FUNCTIONAL-009 | Graceful degradation |
-| FUN-LAYOUT-010 | functional/page-layout.md | COV-FUNCTIONAL-010 | Scroll input methods work |
-| FUN-HERO-001 | functional/hero-section.md | COV-FUNCTIONAL-011 | Product name displayed |
-| FUN-HERO-002 | functional/hero-section.md | COV-FUNCTIONAL-012 | Tagline displayed |
-| FUN-HERO-003 | functional/hero-section.md | COV-FUNCTIONAL-013 | Description displayed |
-| FUN-HERO-004 | functional/hero-section.md | COV-FUNCTIONAL-014 | Target audience displayed |
-| FUN-HERO-005 | functional/hero-section.md | COV-FUNCTIONAL-015 | License info displayed |
-| FUN-HERO-006 | functional/hero-section.md | COV-FUNCTIONAL-016 | Bold typography used |
-| FUN-HERO-007 | functional/hero-section.md | COV-FUNCTIONAL-017 | Hero visible without scrolling |
-| FUN-HERO-008 | functional/hero-section.md | COV-FUNCTIONAL-018 | Readable with font fallback |
-| FUN-FEATURES-001 | functional/features-section.md | COV-FUNCTIONAL-019 | Four feature cards |
-| FUN-FEATURES-002 | functional/features-section.md | COV-FUNCTIONAL-020 | Card 1 content correct |
-| FUN-FEATURES-003 | functional/features-section.md | COV-FUNCTIONAL-021 | Card 2 content correct |
-| FUN-FEATURES-004 | functional/features-section.md | COV-FUNCTIONAL-022 | Card 3 content correct |
-| FUN-FEATURES-005 | functional/features-section.md | COV-FUNCTIONAL-023 | Card 4 content correct |
-| FUN-FEATURES-006 | functional/features-section.md | COV-FUNCTIONAL-024 | Grid layout on desktop |
-| FUN-FEATURES-007 | functional/features-section.md | COV-FUNCTIONAL-025 | 2x2 grid on desktop |
-| FUN-FEATURES-008 | functional/features-section.md | COV-FUNCTIONAL-026 | Stacked/2x2 on mobile |
-| FUN-FEATURES-009 | functional/features-section.md | COV-FUNCTIONAL-027 | Readable without grid |
-| FUN-FEATURES-010 | functional/features-section.md | COV-FUNCTIONAL-028 | Positioned below hero |
-| FUN-SOCIAL-001 | functional/social-links.md | COV-FUNCTIONAL-029 | GitHub icon displayed |
-| FUN-SOCIAL-002 | functional/social-links.md | COV-FUNCTIONAL-030 | LinkedIn icon displayed |
-| FUN-SOCIAL-003 | functional/social-links.md | COV-FUNCTIONAL-031 | GitHub branding recognizable |
-| FUN-SOCIAL-004 | functional/social-links.md | COV-FUNCTIONAL-032 | LinkedIn branding recognizable |
-| FUN-SOCIAL-005 | functional/social-links.md | COV-FUNCTIONAL-033 | GitHub hover state |
-| FUN-SOCIAL-006 | functional/social-links.md | COV-FUNCTIONAL-034 | LinkedIn hover state |
-| FUN-SOCIAL-007 | functional/social-links.md | COV-FUNCTIONAL-035 | GitHub link opens correctly |
-| FUN-SOCIAL-008 | functional/social-links.md | COV-FUNCTIONAL-036 | LinkedIn link opens correctly |
-| FUN-SOCIAL-009 | functional/social-links.md | COV-FUNCTIONAL-037 | Links use target="_blank" |
-| FUN-SOCIAL-010 | functional/social-links.md | COV-FUNCTIONAL-038 | Links use rel="noopener noreferrer" |
-| FUN-SOCIAL-011 | functional/social-links.md | COV-FUNCTIONAL-039 | Text fallback present |
-| FUN-SOCIAL-012 | functional/social-links.md | COV-FUNCTIONAL-040 | Mobile-friendly interaction |
+| FUN-LAYOUT-001 through 011 | functional/page-layout.md | COV-FUNCTIONAL-001 | Four-section structure, load performance, scroll behavior, responsiveness, no-JS fallback, and harness embedding all verified |
+| FUN-HERO-001 through 012 | functional/hero-section.md | COV-FUNCTIONAL-002 | Suite-level hero content, imagery, and fallback behavior verified |
+| FUN-FEATURES-001 through 011 | functional/features-section.md | COV-FUNCTIONAL-003 | Three toolkit cards, correct content and links, grid/responsive behavior, per-card accent verified |
+| FUN-SOCIAL-001 through 015 | functional/social-links.md | COV-FUNCTIONAL-004 | Three GitHub links plus LinkedIn, correct labeling, correct destinations, hover/security attributes verified |
+| FUN-COMPARE-001 through 008 | functional/preview-comparison.md | COV-FUNCTIONAL-005 | Banner presence, tab switching, default candidate, direct access, no-JS fallback verified |
 
 ## Test Definitions
 
 ### Page Layout Tests
 
 ```gherkin
-# COV-FUNCTIONAL-001: Maps to FUN-LAYOUT-001
-Feature: Page Section Structure
-  
-  Scenario: Page displays three sections in correct order
-    Given I navigate to the website
+# COV-FUNCTIONAL-001: Maps to FUN-LAYOUT-001 through FUN-LAYOUT-011
+Feature: Candidate A Page Structure and Responsiveness
+
+  Scenario: Page displays four sections in correct order
+    Given I navigate to Candidate A
     When the page loads
     Then I see a hero section
-    And I see a features section below hero
-    And I see a footer section below features
-    And the sections appear in order: hero, features, footer
+    And I see a Three Toolkits section below hero
+    And I see a "how they fit together" note below Three Toolkits
+    And I see a footer section below that
+    And the sections appear in order: hero, toolkits, relationship, footer
 
-# COV-FUNCTIONAL-002: Maps to FUN-LAYOUT-002
-Feature: Hero Section Initial Visibility
-  
-  Scenario: Hero section is visible on page load
-    Given I navigate to the website
-    When the page loads
-    Then the hero section is visible in the viewport
-    And no scrolling is required to see the hero content
-
-# COV-FUNCTIONAL-003: Maps to FUN-LAYOUT-003
-Feature: Page Load Performance
-  
-  Scenario: Page loads within 2 seconds
-    Given I navigate to the website
+  Scenario: Page loads within performance target
+    Given I navigate to Candidate A
     When I measure the page load time
     Then the page fully loads within 2 seconds
-    And all critical content is visible
 
-# COV-FUNCTIONAL-004: Maps to FUN-LAYOUT-004
-Feature: Smooth Scroll Behavior
-  
-  Scenario: Smooth scrolling activates when available
-    Given I am on the website
-    When I scroll down the page
-    Then smooth scroll behavior is active (if supported by browser)
-    Or standard scroll behavior works (fallback)
-
-# COV-FUNCTIONAL-005: Maps to FUN-LAYOUT-005
-Feature: Mobile Responsive Layout
-  
-  Scenario: Layout adapts for mobile viewport
-    Given I set viewport to 375px width (mobile)
-    When I navigate to the website
+  Scenario Outline: Layout adapts responsively across viewports
+    Given I set viewport to <width>px width
+    When I navigate to Candidate A
     Then the layout is responsive and readable
-    And content stacks vertically appropriately
     And no horizontal scrolling is required
 
-# COV-FUNCTIONAL-006: Maps to FUN-LAYOUT-006
-Feature: Tablet Responsive Layout
-  
-  Scenario: Layout adapts for tablet viewport
-    Given I set viewport to 768px width (tablet)
-    When I navigate to the website
-    Then the layout adapts to tablet dimensions
-    And content is readable and well-organized
+    Examples:
+      | width |
+      | 375   |
+      | 768   |
+      | 1440  |
 
-# COV-FUNCTIONAL-007: Maps to FUN-LAYOUT-007
-Feature: Desktop Responsive Layout
-  
-  Scenario: Layout adapts for desktop viewport
-    Given I set viewport to 1440px width (desktop)
-    When I navigate to the website
-    Then the layout uses full desktop space effectively
-    And feature cards display in grid layout
-
-# COV-FUNCTIONAL-008: Maps to FUN-LAYOUT-008
-Feature: JavaScript-Free Functionality
-  
-  Scenario: Page works without JavaScript
+  Scenario: Page functions without JavaScript
     Given I disable JavaScript in the browser
-    When I navigate to the website
+    When I navigate to Candidate A
     Then all content is visible and accessible
-    And page structure remains intact
-    And links are clickable
+    And links remain clickable
 
-# COV-FUNCTIONAL-009: Maps to FUN-LAYOUT-009
-Feature: Browser Compatibility Graceful Degradation
-  
-  Scenario: Smooth scroll degrades gracefully
-    Given I use a browser without smooth scroll support
-    When I navigate and scroll the page
-    Then standard scroll behavior works
-    And user experience remains functional
-
-# COV-FUNCTIONAL-010: Maps to FUN-LAYOUT-010
-Feature: Scroll Input Methods
-  
-  Scenario: Vertical scrolling works with multiple input methods
-    Given I am on the website
-    When I scroll using mouse wheel
-    Then the page scrolls vertically
-    When I scroll using trackpad gesture
-    Then the page scrolls vertically
-    When I scroll using touch gesture (on touch device)
-    Then the page scrolls vertically
+  Scenario: Page renders correctly inside the comparison harness iframe
+    Given I open the comparison harness with Candidate A active
+    Then Candidate A's content renders identically to its standalone page
 ```
 
 ### Hero Section Tests
 
 ```gherkin
-# COV-FUNCTIONAL-011: Maps to FUN-HERO-001
-Feature: Product Name Display
-  
-  Scenario: Hero section displays product name prominently
-    Given I am on the homepage
-    When I look at the hero section
+# COV-FUNCTIONAL-002: Maps to FUN-HERO-001 through FUN-HERO-012
+Feature: Suite Hero Content
+
+  Scenario: Hero displays suite identity
+    Given I am on Candidate A's homepage
     Then I see "smaQit" displayed prominently
-    And the product name is styled for emphasis
+    And I see the tagline "Power up with smaQit"
+    And I see text stating the suite consists of three offerings
+    And I see "IT professionals" referenced as the target audience
+    And I see "open source" mentioned
 
-# COV-FUNCTIONAL-012: Maps to FUN-HERO-002
-Feature: Tagline Display
-  
-  Scenario: Hero section displays tagline
-    Given I am viewing the hero section
-    Then I see the tagline "Power up with smaQit"
-
-# COV-FUNCTIONAL-013: Maps to FUN-HERO-003
-Feature: Product Description Display
-  
-  Scenario: Hero section displays SDD toolkit description
-    Given I am reading the hero section
-    Then I see text identifying the product as "Spec Driven Development (SDD) toolkit"
-
-# COV-FUNCTIONAL-014: Maps to FUN-HERO-004
-Feature: Target Audience Display
-  
-  Scenario: Hero section displays target audience
-    Given I am viewing the hero content
-    Then I see mention of "IT professionals"
-    And I see reference to roles like POs, architects, engineers, or testers
-
-# COV-FUNCTIONAL-015: Maps to FUN-HERO-005
-Feature: License Information Display
-  
-  Scenario: Hero section displays open source information
-    Given I am reading the hero section
-    Then I see "open source" mentioned
-
-# COV-FUNCTIONAL-016: Maps to FUN-HERO-006
-Feature: Typography Prominence
-  
-  Scenario: Product name uses bold typography
-    Given I inspect the hero section
-    Then the product name element has bold font-weight
-    Or uses strong/b element for emphasis
-
-# COV-FUNCTIONAL-017: Maps to FUN-HERO-007
-Feature: Hero Section Viewport Visibility
-  
-  Scenario: Hero section is fully visible without scrolling
-    Given I navigate to the website
-    When the page loads
-    Then the entire hero section is visible in the viewport
-    And I don't need to scroll to see key hero content
-
-# COV-FUNCTIONAL-018: Maps to FUN-HERO-008
-Feature: Font Fallback Readability
-  
-  Scenario: Content remains readable if custom fonts fail
-    Given custom fonts fail to load or are blocked
+  Scenario: Hero degrades gracefully on asset failure
+    Given the banner image fails to load
     When I view the hero section
-    Then the content is still readable using fallback fonts
-    And text hierarchy is maintained
+    Then fallback text "smaQit" is displayed with appropriate alt text
+    And the section remains fully readable
 ```
 
-### Features Section Tests
+### Three Toolkits Section Tests
 
 ```gherkin
-# COV-FUNCTIONAL-019: Maps to FUN-FEATURES-001
-Feature: Feature Card Count
-  
-  Scenario: Features section displays exactly 4 feature cards
-    Given I scroll to the features section
-    Then I see exactly 4 feature cards displayed
+# COV-FUNCTIONAL-003: Maps to FUN-FEATURES-001 through FUN-FEATURES-011
+Feature: Three Toolkits Cards
 
-# COV-FUNCTIONAL-020: Maps to FUN-FEATURES-002
-Feature: Feature Card 1 Content
-  
-  Scenario: Card 1 displays Stateful Specs
-    Given I am viewing feature card 1
-    Then the title is "Stateful Specs"
-    And there is a description explaining stateful specs
+  Scenario: Exactly three toolkit cards are displayed with correct content
+    Given I scroll to the Three Toolkits section
+    Then I see exactly 3 cards
+    And card 1 is titled "smaQit" with its tagline and a GitHub link
+    And card 2 is titled "smaQit Extensions" with its tagline and a GitHub link
+    And card 3 is titled "smaQit ADK" with its tagline and a GitHub link
+    And each card has a visually distinct accent
 
-# COV-FUNCTIONAL-021: Maps to FUN-FEATURES-003
-Feature: Feature Card 2 Content
-  
-  Scenario: Card 2 displays Versioned Prompts
-    Given I am viewing feature card 2
-    Then the title is "Versioned Prompts"
-    And there is a description explaining versioned prompts
-
-# COV-FUNCTIONAL-022: Maps to FUN-FEATURES-004
-Feature: Feature Card 3 Content
-  
-  Scenario: Card 3 displays Built for Agile Teams
-    Given I am viewing feature card 3
-    Then the title contains "Agile Teams" or similar
-    And there is a description about agile team support
-
-# COV-FUNCTIONAL-023: Maps to FUN-FEATURES-005
-Feature: Feature Card 4 Content
-  
-  Scenario: Card 4 displays Modular Layers
-    Given I am viewing feature card 4
-    Then the title is "Modular Layers"
-    And there is a description explaining the modular architecture
-
-# COV-FUNCTIONAL-024: Maps to FUN-FEATURES-006
-Feature: Desktop Grid Layout
-  
-  Scenario: Feature cards use grid layout on desktop
-    Given I set viewport to 1440px width (desktop)
-    When I view the features section
-    Then feature cards are arranged in a grid layout
-
-# COV-FUNCTIONAL-025: Maps to FUN-FEATURES-007
-Feature: Desktop 2x2 Grid
-  
-  Scenario: Feature cards display in 2x2 grid on desktop
-    Given I am on desktop viewport (> 1024px)
-    When I view the features section
-    Then 2 cards appear in the first row
-    And 2 cards appear in the second row
-
-# COV-FUNCTIONAL-026: Maps to FUN-FEATURES-008
-Feature: Mobile Layout Adaptation
-  
-  Scenario: Feature cards stack or display in 2x2 on mobile
-    Given I set viewport to 375px width (mobile)
-    When I view the features section
-    Then cards either stack vertically or display in 2x2 grid
-    And all cards remain readable
-
-# COV-FUNCTIONAL-027: Maps to FUN-FEATURES-009
-Feature: Grid Layout Fallback
-  
-  Scenario: Features remain readable without grid support
-    Given the browser doesn't support CSS grid
-    When I view the features section
-    Then feature cards remain accessible and readable
-    And content stacks in a usable manner
-
-# COV-FUNCTIONAL-028: Maps to FUN-FEATURES-010
-Feature: Features Section Position
-  
-  Scenario: Features section is below hero section
-    Given I am on the website
-    When I scroll from top
-    Then I see hero section first
-    And features section appears after hero section
+  Scenario: Cards use a grid layout on desktop and stack on mobile
+    Given I set viewport to 1440px width
+    When I view the Three Toolkits section
+    Then the 3 cards are arranged in a grid
+    Given I set viewport to 375px width
+    When I view the Three Toolkits section
+    Then the 3 cards stack vertically and remain readable
 ```
 
-### Social Links Tests
+### Social and Repository Links Tests
 
 ```gherkin
-# COV-FUNCTIONAL-029: Maps to FUN-SOCIAL-001
-Feature: GitHub Icon Display
-  
-  Scenario: Footer displays GitHub icon
+# COV-FUNCTIONAL-004: Maps to FUN-SOCIAL-001 through FUN-SOCIAL-015
+Feature: Social and Repository Links
+
+  Scenario: Footer displays all four links correctly labeled
     Given I scroll to the footer
-    Then I see a GitHub icon or link
+    Then I see a GitHub link labeled for smaQit
+    And I see a GitHub link labeled for smaQit Extensions
+    And I see a GitHub link labeled for smaQit ADK
+    And I see a LinkedIn link
 
-# COV-FUNCTIONAL-030: Maps to FUN-SOCIAL-002
-Feature: LinkedIn Icon Display
-  
-  Scenario: Footer displays LinkedIn icon
-    Given I am viewing the footer
-    Then I see a LinkedIn icon or link
-
-# COV-FUNCTIONAL-031: Maps to FUN-SOCIAL-003
-Feature: GitHub Brand Recognition
-  
-  Scenario: GitHub icon is recognizable as GitHub brand
-    Given I view the social icons
-    Then the GitHub icon uses recognizable GitHub branding
-    And I can identify it as GitHub
-
-# COV-FUNCTIONAL-032: Maps to FUN-SOCIAL-004
-Feature: LinkedIn Brand Recognition
-  
-  Scenario: LinkedIn icon is recognizable as LinkedIn brand
-    Given I view the social icons
-    Then the LinkedIn icon uses recognizable LinkedIn branding
-    And I can identify it as LinkedIn
-
-# COV-FUNCTIONAL-033: Maps to FUN-SOCIAL-005
-Feature: GitHub Icon Hover State
-  
-  Scenario: GitHub icon displays hover state
-    Given I am on the footer
-    When I hover over the GitHub icon
-    Then the icon displays a hover state (visual change)
-
-# COV-FUNCTIONAL-034: Maps to FUN-SOCIAL-006
-Feature: LinkedIn Icon Hover State
-  
-  Scenario: LinkedIn icon displays hover state
-    Given I am on the footer
-    When I hover over the LinkedIn icon
-    Then the icon displays a hover state (visual change)
-
-# COV-FUNCTIONAL-035: Maps to FUN-SOCIAL-007
-Feature: GitHub Link Navigation
-  
-  Scenario: Clicking GitHub icon opens repository
-    Given I am on the website
-    When I click the GitHub icon
+  Scenario Outline: Each link opens the correct destination securely
+    Given I click the "<label>" link
     Then a new tab opens
-    And the URL contains "github.com"
-    And the URL contains "smaqit"
+    And the URL contains "<domain-fragment>"
+    And the link element has target="_blank" and rel="noopener noreferrer"
 
-# COV-FUNCTIONAL-036: Maps to FUN-SOCIAL-008
-Feature: LinkedIn Link Navigation
-  
-  Scenario: Clicking LinkedIn icon opens profile
-    Given I am on the website
-    When I click the LinkedIn icon
-    Then a new tab opens
-    And the URL contains "linkedin.com"
+    Examples:
+      | label              | domain-fragment                         |
+      | smaQit              | github.com/ruifrvaz/smaqit               |
+      | smaQit Extensions   | github.com/ruifrvaz/smaqit-extensions    |
+      | smaQit ADK          | github.com/ruifrvaz/smaqit-adk           |
+      | LinkedIn            | linkedin.com                             |
 
-# COV-FUNCTIONAL-037: Maps to FUN-SOCIAL-009
-Feature: External Link Target Attribute
-  
-  Scenario: Social links use target="_blank"
-    Given I inspect the social link elements
-    Then the GitHub link has attribute target="_blank"
-    And the LinkedIn link has attribute target="_blank"
+  Scenario: Icons remain usable when images fail or on mobile
+    Given icon images fail to load
+    Then text fallback labels are visible for all four links
+    Given I am on a 375px viewport
+    Then all four links are large enough for touch (min 44x44px)
+```
 
-# COV-FUNCTIONAL-038: Maps to FUN-SOCIAL-010
-Feature: External Link Security Attributes
-  
-  Scenario: Social links use rel="noopener noreferrer"
-    Given I inspect the social link elements
-    Then the GitHub link has attribute rel="noopener noreferrer"
-    And the LinkedIn link has attribute rel="noopener noreferrer"
+### Comparison Harness Tests
 
-# COV-FUNCTIONAL-039: Maps to FUN-SOCIAL-011
-Feature: Icon Text Fallback
-  
-  Scenario: Social icons have text fallback
-    Given icon images fail to load or are blocked
-    When I view the footer
-    Then text labels "GitHub" and "LinkedIn" are visible
-    Or aria-labels provide equivalent information
+```gherkin
+# COV-FUNCTIONAL-005: Maps to FUN-COMPARE-001 through FUN-COMPARE-008
+Feature: Preview Comparison Harness
 
-# COV-FUNCTIONAL-040: Maps to FUN-SOCIAL-012
-Feature: Mobile Touch Interaction
-  
-  Scenario: Social icons work on mobile devices
-    Given I am on mobile viewport (375px)
-    When I view the footer
-    Then social icons are large enough for touch (min 44x44px)
-    And icons remain clickable on mobile
+  Scenario: Banner is present and sticky with three tabs
+    Given I open the comparison harness
+    Then a banner is visible at the top of the viewport
+    And it displays exactly 3 tabs
+    When I scroll down
+    Then the banner remains fixed at the top
+
+  Scenario: Candidate A is the default
+    Given I open the harness with no candidate specified
+    Then Candidate A's content is displayed
+    And Candidate A's tab is visually indicated as active
+
+  Scenario Outline: Switching tabs swaps the displayed candidate without a full reload
+    Given I open the harness
+    When I select the "<candidate>" tab
+    Then the "<candidate>" content is displayed below the banner
+    And no full browser page reload occurs
+    And the "<candidate>" tab is now visually indicated as active
+
+    Examples:
+      | candidate   |
+      | Candidate B |
+      | Candidate C |
+      | Candidate A |
+
+  Scenario: Each candidate is reachable directly
+    Given I navigate directly to Candidate B's standalone path
+    Then Candidate B's content renders correctly without the harness banner's switching logic being required
+
+  Scenario: Banner degrades without JavaScript
+    Given JavaScript is disabled
+    When I open the comparison harness
+    Then each tab is a standard link that navigates to that candidate's standalone page
 ```
 
 ## Untestable Criteria
 
 | Requirement | Source | Reason | Verification Decision |
 |-------------|--------|--------|----------------------|
-| FUN-HERO-009 | functional/hero-section.md | Emotional brand perception (empowering energy) is subjective | Manual design review; optional user feedback survey |
+| FUN-HERO-013 | functional/hero-section.md | Emotional brand perception (empowering energy) is subjective | Manual design review; optional user feedback survey |
+| BUS-COMPARE-006 | business/uc4-compare.md | Whether the harness "reads" as pre-release is a subjective interpretation | Manual review by the Site Owner |
 
 ## Coverage Summary
 
 | Layer | Total Requirements | Mapped to Tests | Untestable | Coverage % |
-|-------|-------------------|-----------------|------------|------------|
-| Functional | 40 | 40 | 1 | 100% |
-| **Total** | **40** | **40** | **1** | **100%** |
+|-------|--------------------|------------------|------------|------------|
+| Functional (Candidate A + Harness) | 57 | 56 | 1 | 100% |
+| **Total** | **57** | **56** | **1** | **100%** |
 
-**Formula:** Coverage % = (40) / (40 - 0) × 100 = 100%
+**Formula:** Coverage % = (56) / (57 - 1) × 100 = 100%
 
-**Note:** All 40 testable functional requirements are mapped to test cases. 1 untestable criterion (FUN-HERO-009) is documented with manual verification procedure.
+**Note:** Requirement count: FUN-LAYOUT (11) + FUN-HERO (12 testable + 1 untestable) + FUN-FEATURES (11) + FUN-SOCIAL (15) + FUN-COMPARE (8) = 57 total, 56 testable, all 56 mapped to the five consolidated test features above.
 
 ## Acceptance Criteria
 
 Requirements use format: `COV-FUNCTIONAL-[NNN]`
 
-- [!] COV-FUNCTIONAL-001 through COV-FUNCTIONAL-040: Individual functional requirement tests execute (32/40 passed, 8 failed due to strict mode violations)
-- [!] COV-FUNCTIONAL-041: All layout tests pass in mobile viewport (375px) — strict mode violation on text=smaQit
-- [!] COV-FUNCTIONAL-042: All layout tests pass in tablet viewport (768px) — strict mode violation on text=smaQit
-- [!] COV-FUNCTIONAL-043: All layout tests pass in desktop viewport (1440px) — strict mode violation on text=smaQit
-- [x] COV-FUNCTIONAL-044: All tests pass in Chromium browser (32/40 tests passed)
-- [ ] COV-FUNCTIONAL-045: All tests pass in Firefox browser (not yet tested)
-- [ ] COV-FUNCTIONAL-046: All tests pass in WebKit (Safari) browser (not yet tested)
-- [x] COV-FUNCTIONAL-047: Hero section tests complete in <5 seconds
-- [x] COV-FUNCTIONAL-048: Features section tests complete in <5 seconds
-- [x] COV-FUNCTIONAL-049: Social links tests complete in <10 seconds (includes navigation)
-- [!] COV-FUNCTIONAL-050: JavaScript-disabled tests validate content accessibility — JS-disabled navigation issue
+- [ ] COV-FUNCTIONAL-001: All Candidate A page-layout scenarios pass across Chromium, Firefox, and WebKit
+- [ ] COV-FUNCTIONAL-002: All hero-section scenarios pass across Chromium, Firefox, and WebKit
+- [ ] COV-FUNCTIONAL-003: All Three Toolkits scenarios pass across Chromium, Firefox, and WebKit
+- [ ] COV-FUNCTIONAL-004: All social/repository link scenarios pass across Chromium, Firefox, and WebKit
+- [ ] COV-FUNCTIONAL-005: All comparison harness scenarios pass across Chromium, Firefox, and WebKit
+- [ ] COV-FUNCTIONAL-006: All scenarios pass at 375px, 768px, and 1440px viewports
 
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit v1.2.0*

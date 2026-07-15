@@ -2,23 +2,13 @@
 id: INF-[CONCEPT]
 status: draft
 created: [TIMESTAMP]
-prompt_version: [GIT_HASH]
 ---
 
 # [CONCEPT_NAME]
 
 ## References
 
-<!-- References establish traceability and coherence, not requirement derivation -->
-<!-- Infrastructure specs enable the entire application to run in a target environment -->
-<!-- Use Implements for feature specs (1:1 mapping) -->
-<!-- Use Enables for foundation specs (1:many mapping) -->
-<!-- Use same-layer references when feature specs extend foundation specs -->
-
 ### Foundation Reference
-
-<!-- Same-layer reference: use when this feature spec extends a foundation spec -->
-<!-- Omit this section if this spec doesn't depend on a foundation spec in the same layer -->
 
 - [INF-[FOUNDATION-CONCEPT]](./[FOUNDATION-FILENAME].md) — [Shared requirements referenced here]
 
@@ -140,4 +130,4 @@ If any criterion cannot be automatically validated, flag it:
 
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit [SMAQIT_VERSION]*

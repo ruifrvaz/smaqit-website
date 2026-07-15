@@ -1,9 +1,8 @@
 ---
 id: COV-TECHNICAL
-status: validated
+status: draft
 created: 2026-01-30
-validated: 2026-01-30T23:25:24Z
-prompt_version: initial
+modified: 2026-07-15
 ---
 
 # Technical Stack and Infrastructure Tests
@@ -480,6 +479,39 @@ Requirements use format: `COV-TECHNICAL-[NNN]`
 - [x] COV-TECHNICAL-049: No false positives in test results
 - [x] COV-TECHNICAL-050: Test failures include actionable error messages
 
+## Addendum: Suite Expansion (2026-07-15)
+
+[STK-FRONTEND](../stack/frontend-stack.md) was revised to cover three candidate builds (Scroll Snap, IntersectionObserver), and a new foundation spec [STK-COMPARE-HARNESS](../stack/comparison-harness-stack.md) defines the iframe-based switching mechanism. This addendum adds coverage for the delta; the original CDN/hosting/deployment test scenarios above remain valid unchanged.
+
+### New Technical Tests
+
+```gherkin
+# COV-TECHNICAL-051: Maps to STK-FRONTEND-011
+Feature: IntersectionObserver-Based Panel Detection
+
+  Scenario: Candidate B detects the active panel without scroll polling
+    Given I inspect Candidate B's JavaScript
+    Then panel activation is implemented using IntersectionObserver
+    And no scroll-event polling loop is present
+
+# COV-TECHNICAL-052: Maps to STK-COMPARE-HARNESS-001 through STK-COMPARE-HARNESS-004
+Feature: Comparison Harness Implementation
+
+  Scenario: Harness swaps candidates via iframe without a framework
+    Given I inspect the comparison harness page
+    Then an iframe element is present whose src is updated by vanilla JavaScript
+    And no frontend framework or JS library is loaded
+    And each banner tab is an anchor element with a valid href to a standalone candidate file
+```
+
+### Updated Coverage Summary
+
+| Layer | Total Requirements | Mapped to Tests | Untestable | Coverage % |
+|-------|--------------------|------------------|------------|------------|
+| Stack (Frontend + Dependencies + Comparison Harness) | 27 | 27 | 1 | 100% |
+
+**Note:** STK-FRONTEND (11 testable + 1 untestable) + STK-DEPENDENCIES (11) + STK-COMPARE-HARNESS (4) = 27 testable stack criteria; the two new tests above cover the delta introduced since the original technical coverage was written.
+
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit v1.2.0*

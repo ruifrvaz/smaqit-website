@@ -1,43 +1,22 @@
-/* Traceability: STK-FRONTEND-002 (CSS3 with Flexbox, Grid, Custom Properties) */
+/* Traceability: STK-FRONTEND-002 (CSS3 with Custom Properties, layered backgrounds) */
+/* Candidate B — "Immersive": one continuous scroll; cards emerge over a fixed, depth-layered dark background */
 
-/* ===================================
-   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
-   =================================== */
 :root {
-    /* Colors - Empowering palette */
-    --color-primary: #FF6B35;        /* Bold orange - energy */
-    --color-primary-dark: #E85A2A;   /* Darker orange for hover */
-    --color-secondary: #004E89;      /* Deep blue - stability */
-    --color-accent: #F7931E;         /* Bright accent */
-    --color-dark: #1A1A2E;           /* Near black */
-    --color-text: #333333;           /* Body text */
-    --color-text-light: #666666;     /* Secondary text */
-    --color-bg: #FFFFFF;             /* White background */
-    --color-bg-alt: #F8F9FA;         /* Alternate background */
-    
-    /* Typography */
+    --color-primary: #FF6B35;
+    --color-secondary: #3B9CFF;
+    --color-accent: #F7931E;
+    --color-adk: #1FD999;
+    --color-void: #05050A;
+    --color-bg: #FFFFFF;
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-weight-normal: 400;
     --font-weight-bold: 700;
     --font-weight-black: 900;
-    
-    /* Spacing */
-    --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 2rem;
     --spacing-lg: 3rem;
-    --spacing-xl: 4rem;
-    --spacing-xxl: 6rem;
-    
-    /* Breakpoints (for reference in media queries) */
-    --breakpoint-mobile: 768px;
-    --breakpoint-tablet: 1024px;
 }
 
-/* ===================================
-   RESET & BASE STYLES
-   =================================== */
-/* Traceability: STK-FRONTEND-001 (HTML5 standard) */
 * {
     margin: 0;
     padding: 0;
@@ -45,206 +24,340 @@
 }
 
 html {
-    /* Traceability: FUN-LAYOUT-004 (Smooth scroll behavior) */
-    scroll-behavior: smooth;
-    font-size: 16px;
+    background: var(--color-void);
 }
 
 body {
     font-family: var(--font-primary);
-    color: var(--color-text);
-    background-color: var(--color-bg);
+    color: var(--color-bg);
+    background-color: var(--color-void);
     line-height: 1.6;
-    /* Traceability: FUN-LAYOUT-003 (Fast load time optimization) */
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===================================
-   CONTAINER
+   FIXED IMMERSIVE BACKGROUND
+   Traceability: FUN-COMPARE distinguishing treatment — background flows behind emerging cards
    =================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-md);
+.bg-scene {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 0%, #12121f 0%, var(--color-void) 60%);
+}
+
+.blob {
+    position: absolute;
+    width: 70vmax;
+    height: 70vmax;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0;
+    transition: opacity 1.4s ease;
+    will-change: opacity, transform;
+    animation: drift 26s ease-in-out infinite;
+}
+
+/* Traceability: STK-FRONTEND-011 (cross-fade driven by IntersectionObserver, not scroll polling) */
+.blob.active {
+    opacity: 0.55;
+}
+
+.blob-suite {
+    top: -20%;
+    left: -10%;
+    background: radial-gradient(circle, #1B1B3A 0%, transparent 70%);
+    animation-delay: 0s;
+}
+
+.blob-core {
+    top: 5%;
+    right: -15%;
+    background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+    animation-delay: -4s;
+}
+
+.blob-ext {
+    bottom: 10%;
+    left: -20%;
+    background: radial-gradient(circle, var(--color-secondary) 0%, transparent 70%);
+    animation-delay: -9s;
+}
+
+.blob-adk {
+    top: 20%;
+    left: 10%;
+    background: radial-gradient(circle, var(--color-adk) 0%, transparent 70%);
+    animation-delay: -14s;
+}
+
+.blob-fit {
+    bottom: -15%;
+    right: -10%;
+    background: radial-gradient(circle, #6B4EFF 0%, transparent 70%);
+    animation-delay: -19s;
+}
+
+.blob-connect {
+    top: 30%;
+    right: 5%;
+    background: radial-gradient(circle, #1B1B3A 0%, transparent 70%);
+    animation-delay: -23s;
+}
+
+@keyframes drift {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+    33% { transform: translate3d(3%, -4%, 0) scale(1.08); }
+    66% { transform: translate3d(-4%, 3%, 0) scale(0.96); }
+}
+
+/* Subtle grain for material depth, built from layered CSS gradients (no external asset) */
+.bg-grain {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image:
+        radial-gradient(rgba(255,255,255,0.8) 0.5px, transparent 0.5px),
+        radial-gradient(rgba(255,255,255,0.6) 0.5px, transparent 0.5px);
+    background-size: 3px 3px, 5px 5px;
+    background-position: 0 0, 1.5px 1.5px;
+    mix-blend-mode: overlay;
+}
+
+.bg-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 45%, transparent 40%, rgba(0,0,0,0.65) 100%);
 }
 
 /* ===================================
-   HERO SECTION
+   CONTINUOUS SCROLL FLOW (no snap — natural momentum)
    =================================== */
-/* Traceability: FUN-HERO-010 (Hero visible on load) */
-.hero-section {
+.scroll-flow {
+    position: relative;
+    z-index: 1;
+}
+
+.beat {
     min-height: 100vh;
-    /* Traceability: STK-FRONTEND-009 (Flexbox for responsive layout) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem var(--spacing-md);
+}
+
+.beat-suite {
+    padding-top: 8rem;
+}
+
+/* Traceability: FUN-COMPARE distinguishing treatment — items "emerge like cards" over the fixed backdrop */
+.card-surface {
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.045);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 28px;
+    padding: 3rem 2.75rem;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    opacity: 0;
+    transform: translateY(48px) scale(0.97);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.beat-suite .card-surface {
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    box-shadow: none;
+}
+
+.beat.is-visible .card-surface {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.8125rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-accent);
+    margin-bottom: var(--spacing-sm);
+}
+
+.mega-title {
+    font-size: clamp(4rem, 14vw, 9rem);
+    font-weight: var(--font-weight-black);
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.mega-tagline {
+    font-size: clamp(1.25rem, 3vw, 2rem);
+    font-weight: var(--font-weight-bold);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.mega-desc {
+    font-size: 1.0625rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 560px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.scroll-cue {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-dark) 100%);  
-    color: var(--color-bg);
-    padding: var(--spacing-xl) var(--spacing-md);
-}
-
-/* Traceability: FUN-HERO-001, FUN-HERO-002, FUN-HERO-004 (Logo/banner image) */
-.product-logo {
-    width: 100%;
-    height: auto;
-    margin-bottom: var(--spacing-md);
-    display: block;
-    /* Ensure crisp rendering */
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-}
-
-/* Traceability: FUN-HERO-011, FUN-HERO-005 (Fallback for failed image load) */
-.product-name-fallback {
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: var(--font-weight-black);
-    letter-spacing: -0.02em;
-    margin-bottom: var(--spacing-sm);
-    /* Empowering energy through bold typography */
+    gap: 0.4rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    animation: bounce 2s infinite;
 }
 
-/* Legacy product-name class (kept for compatibility) */
-.product-name {
-    font-size: clamp(3rem, 8vw, 6rem);
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(8px); }
+}
+
+.beat-core .eyebrow, .beat-core .beat-title i { color: var(--color-primary); }
+.beat-ext .eyebrow, .beat-ext .beat-title i { color: var(--color-secondary); }
+.beat-adk .eyebrow, .beat-adk .beat-title i { color: var(--color-adk); }
+
+.beat-title {
+    font-size: clamp(2rem, 5vw, 3.25rem);
     font-weight: var(--font-weight-black);
-    letter-spacing: -0.02em;
-    margin-bottom: var(--spacing-sm);
-    text-transform: uppercase;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-
-/* Traceability: FUN-HERO-006 (Tagline) */
-.tagline {
-    font-size: clamp(1.5rem, 3vw, 2.5rem);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-bg);
-    margin-bottom: var(--spacing-lg);
-    letter-spacing: 0.02em;
-}
-
-/* Traceability: FUN-HERO-007, FUN-HERO-008, FUN-HERO-009 (Product description) */
-.product-description {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.description-main {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
     margin-bottom: var(--spacing-md);
-    color: rgba(255, 255, 255, 0.95);
-}
-
-.description-audience {
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    margin-bottom: var(--spacing-sm);
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.description-license {
-    font-size: clamp(0.875rem, 1.25vw, 1.125rem);
-    color: rgba(255, 255, 255, 0.75);
-}
-
-/* ===================================
-   FEATURES SECTION
-   =================================== */
-/* Traceability: FUN-FEATURES-010 (Below hero) */
-.features-section {
-    padding: var(--spacing-xxl) var(--spacing-md);
-    background-color: var(--color-bg-alt);
-}
-
-.section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: var(--font-weight-black);
-    text-align: center;
-    color: var(--color-dark);
-    margin-bottom: var(--spacing-xl);
-}
-
-/* Traceability: FUN-FEATURES-006, FUN-FEATURES-007, STK-FRONTEND-009 (Grid layout) */
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-lg);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Traceability: FUN-FEATURES-001 (Feature cards) */
-.feature-card {
-    background: var(--color-bg);
-    padding: var(--spacing-lg);
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.feature-icon {
-    font-size: 3rem;
-    color: var(--color-primary);
-    margin-bottom: var(--spacing-md);
-}
-
-.feature-title {
-    font-size: 1.5rem;
-    font-weight: var(--font-weight-bold);
-    color: var(--color-dark);
-    margin-bottom: var(--spacing-sm);
-}
-
-.feature-description {
-    font-size: 1rem;
-    color: var(--color-text-light);
-    line-height: 1.7;
-}
-
-/* ===================================
-   FOOTER SECTION
-   =================================== */
-.footer-section {
-    padding: var(--spacing-xl) var(--spacing-md);
-    background-color: var(--color-dark);
-    color: var(--color-bg);
-    text-align: center;
-}
-
-/* Traceability: FUN-SOCIAL-001, FUN-SOCIAL-002 (Social icons) */
-.social-links {
-    /* Traceability: STK-FRONTEND-009 (Flexbox for layout) */
     display: flex;
+    align-items: center;
     justify-content: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-md);
+    gap: 0.6rem;
 }
 
-/* Traceability: FUN-SOCIAL-005, FUN-SOCIAL-006, FUN-SOCIAL-012 (Hover states, mobile clickable) */
+.beat-lead {
+    font-size: 1.1875rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 560px;
+    margin: 0 auto var(--spacing-md);
+}
+
+.beat-feature-list {
+    list-style: none;
+    text-align: left;
+    max-width: 480px;
+    margin: 0 auto var(--spacing-lg);
+    display: inline-block;
+}
+
+.beat-feature-list li {
+    font-size: 1.0625rem;
+    margin-bottom: var(--spacing-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.beat-core .beat-feature-list i { color: var(--color-primary); margin-top: 0.2em; }
+.beat-ext .beat-feature-list i { color: var(--color-secondary); margin-top: 0.2em; }
+.beat-adk .beat-feature-list i { color: var(--color-adk); margin-top: 0.2em; }
+
+.beat-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--color-void);
+    background: var(--color-bg);
+    font-weight: var(--font-weight-bold);
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.beat-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Fit grid — three side-by-side positioning cards (replaces the old "builds" arrow-chain) */
+.fit-grid {
+    margin-top: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-sm);
+    text-align: left;
+}
+
+.fit-card {
+    padding: 1.5rem 1.25rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fit-card-label {
+    display: block;
+    font-weight: var(--font-weight-black);
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+}
+
+.fit-card-desc {
+    font-size: 0.9375rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.5;
+}
+
+.fit-card-core { border-color: rgba(255, 107, 53, 0.35); }
+.fit-card-core .fit-card-label { color: var(--color-primary); }
+
+.fit-card-ext { border-color: rgba(59, 156, 255, 0.35); }
+.fit-card-ext .fit-card-label { color: var(--color-secondary); }
+
+.fit-card-adk { border-color: rgba(31, 217, 153, 0.35); }
+.fit-card-adk .fit-card-label { color: var(--color-adk); }
+
+/* Connect section — pulled up closer to the previous card (was reading as an oversized gap
+   because its content is shorter than the other beats, leaving extra empty space above it
+   inside a full 100vh centered section) */
+.beat-connect {
+    min-height: 60vh;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
 .social-link {
     display: inline-flex;
     align-items: center;
-    gap: var(--spacing-xs);
+    gap: 0.5rem;
     color: var(--color-bg);
     text-decoration: none;
-    font-size: 1.125rem;
-    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 8px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
@@ -252,119 +365,105 @@ body {
 .social-link:focus {
     background-color: var(--color-primary);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
 }
 
-.social-link i {
-    font-size: 1.5rem;
-}
-
-/* Traceability: FUN-SOCIAL-011 (Text fallback) */
 .social-label {
     font-weight: var(--font-weight-bold);
 }
 
 .footer-copyright {
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: var(--spacing-md);
+    color: rgba(255, 255, 255, 0.6);
 }
 
 /* ===================================
-   RESPONSIVE DESIGN
+   PANEL DOT NAVIGATION
    =================================== */
-/* Traceability: FUN-LAYOUT-005 (Mobile viewports < 768px) */
+.panel-dots {
+    position: fixed;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    z-index: 100;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--color-primary);
+    transform: scale(1.4);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+/* ===================================
+   RESPONSIVE
+   =================================== */
 @media (max-width: 767px) {
-    .hero-section {
-        min-height: 90vh;
-        padding: var(--spacing-lg) var(--spacing-md);
+    .panel-dots {
+        right: 0.75rem;
+        gap: 0.5rem;
     }
-    
-    .product-name {
-        font-size: 2.5rem;
+
+    .dot {
+        width: 8px;
+        height: 8px;
     }
-    
-    .tagline {
-        font-size: 1.25rem;
-    }
-    
-    /* Traceability: FUN-FEATURES-008 (Mobile grid) */
-    .features-grid {
+
+    .fit-grid {
         grid-template-columns: 1fr;
-        gap: var(--spacing-md);
     }
-    
-    .social-links {
-        flex-direction: column;
-        align-items: center;
-        gap: var(--spacing-md);
-    }
-    
-    .social-link {
-        width: 100%;
-        max-width: 300px;
-        justify-content: center;
-    }
-}
 
-/* Traceability: FUN-LAYOUT-006 (Tablet viewports 768px-1024px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .card-surface {
+        padding: 2.25rem 1.5rem;
     }
-}
 
-/* Traceability: FUN-LAYOUT-007 (Desktop viewports > 1024px) */
-@media (min-width: 1024px) {
-    .features-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .beat {
+        padding: 4rem 1.25rem;
+    }
+
+    .beat-connect {
+        min-height: auto;
+        padding: 3rem 1.25rem 4rem;
     }
 }
 
 /* ===================================
    ACCESSIBILITY
    =================================== */
-/* Focus visible for keyboard navigation */
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
-/* Reduced motion preference */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
-    
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
 
-/* ===================================
-   PRINT STYLES
-   =================================== */
-@media print {
-    .hero-section {
-        min-height: auto;
-        background: white;
-        color: black;
+    .card-surface {
+        transition: none;
+        opacity: 1;
+        transform: none;
     }
-    
-    .product-name {
-        -webkit-text-fill-color: black;
-        background: none;
-        color: black;
+
+    .blob {
+        animation: none;
     }
-    
-    .social-link {
-        background: none;
-        color: black;
-        border: 1px solid black;
+
+    .scroll-cue {
+        animation: none;
     }
 }

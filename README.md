@@ -1,8 +1,8 @@
 # smaQit Website
 
-**Power up with smaQit** — A Spec Driven Development (SDD) toolkit for IT professionals.
+**Power up with smaQit** — a suite of three agentic development toolkits: smaQit (spec-driven orchestration), smaQit Extensions (quality-of-life workflows), and smaQit ADK (agent development kit).
 
-This repository contains the official landing page for smaQit, built with simplicity and performance in mind.
+This repository contains the official landing page for the smaQit suite: one continuous scroll, cards emerging over a fixed, depth-layered dark background.
 
 ---
 
@@ -49,18 +49,25 @@ Simply open `public/index.html` in your browser. Note: Some features may not wor
 
 ```
 smaqit-website/
-├── public/              # Website files (deploy this folder)
-│   ├── index.html       # Main HTML file
-│   ├── style.css        # Stylesheet
-│   └── script.js        # Optional JavaScript enhancements
-├── specs/               # Specification files
-│   ├── business/        # Business layer specs
-│   ├── functional/      # Functional layer specs
-│   └── stack/           # Stack layer specs
-├── .smaqit/             # smaQit framework files
-│   ├── reports/         # Development reports
-│   └── templates/       # Specification templates
-└── README.md            # This file
+├── public/                    # Website files (deploy this folder)
+│   ├── index.html             # Main HTML file — immersive single-scroll layout
+│   ├── style.css              # Stylesheet — dark theme, depth-layered background
+│   └── script.js               # IntersectionObserver scroll reveal + parallax (optional JS)
+├── hall-of-honor/              # Retired design candidates, kept for reference
+│   ├── README.md
+│   ├── version-a-cards/        # Candidate A — extended cards + banner image
+│   └── version-c-panels/       # Candidate C — dark blue, no-scroll panel nav
+├── specs/                      # Specification files
+│   ├── business/                # Business layer specs
+│   ├── functional/               # Functional layer specs
+│   ├── stack/                    # Stack layer specs
+│   ├── infrastructure/           # Infrastructure layer specs
+│   └── coverage/                 # Test coverage specs
+├── docs/                        # Suite research and content briefs
+├── .smaqit/                     # smaQit framework files
+│   ├── reports/                  # Development reports
+│   └── templates/                # Specification templates
+└── README.md                    # This file
 ```
 
 ---
@@ -70,9 +77,9 @@ smaqit-website/
 This website is built with:
 
 - **HTML5** — Semantic markup
-- **CSS3** — Modern layouts with Flexbox and Grid
-- **Vanilla JavaScript** — Minimal progressive enhancements (optional)
-- **Font Awesome 6.x** — Social media icons (via CDN)
+- **CSS3** — Custom Properties, layered radial-gradient backgrounds for depth, glassmorphism
+- **Vanilla JavaScript** — `IntersectionObserver` for scroll-reveal and section tracking, `requestAnimationFrame`-throttled parallax (progressive enhancement — the page works without JS)
+- **Font Awesome 6.x** — Icons (via CDN)
 - **Google Fonts (Inter)** — Typography (via CDN)
 
 ### No Build Step Required
@@ -87,13 +94,14 @@ This is a **zero-build** static website. No compilation, bundling, or transpilat
 
 Open the website in your browser and verify:
 
-- [ ] Hero section loads immediately with product name, tagline, and description
-- [ ] Four feature cards are displayed in a grid layout
-- [ ] GitHub and LinkedIn icons are visible in the footer
-- [ ] Clicking social icons opens links in new tabs
-- [ ] Smooth scrolling works (if supported by browser)
+- [ ] Suite intro loads immediately with the smaQit title, tagline, and description
+- [ ] Scrolling down reveals each offering (smaQit, Extensions, ADK) as a card emerging over the fixed background
+- [ ] The background glow cross-fades to match whichever section is active
+- [ ] The right-edge dot navigation tracks scroll position and jumps to a section on click
+- [ ] "How they fit together" shows the three positioning cards (greenfield/business-heavy, add tooling or app-heavy, build-your-own ecosystem)
+- [ ] GitHub (×3) and LinkedIn links in the Connect section open in new tabs
 - [ ] Page is responsive on mobile devices (resize browser window)
-- [ ] Page works without JavaScript (disable JS in browser)
+- [ ] Page works without JavaScript (disable JS in browser) — content is still visible, just without scroll-reveal/parallax
 
 ### Browser Compatibility
 
@@ -146,7 +154,9 @@ The `public/` folder can be deployed to:
 ## 🔗 Links
 
 - **Website:** [Coming soon]
-- **GitHub Repository:** https://github.com/ruifrvaz/smaqit
+- **smaQit:** https://github.com/ruifrvaz/smaqit
+- **smaQit Extensions:** https://github.com/ruifrvaz/smaqit-extensions
+- **smaQit ADK:** https://github.com/ruifrvaz/smaqit-adk
 - **LinkedIn:** https://www.linkedin.com/in/rui-vaz-43b13842
 
 ---
@@ -174,9 +184,12 @@ See the main smaQit documentation for the full workflow.
 
 This website was built following the smaQit methodology. All implementation decisions trace back to specifications:
 
-- **Business Specs:** `specs/business/` (UC1-PRODUCT, UC2-FEATURES, UC3-CONNECT)
-- **Functional Specs:** `specs/functional/` (page-layout, hero-section, features-section, social-links)
-- **Stack Specs:** `specs/stack/` (frontend-stack, dependencies-stack)
+- **Business Specs:** `specs/business/` (UC1-PRODUCT, UC2-FEATURES, UC3-CONNECT, UC4-COMPARE)
+- **Functional Specs:** `specs/functional/` (page-layout, hero-section, features-section, social-links, preview-comparison)
+- **Stack Specs:** `specs/stack/` (frontend-stack, comparison-harness-stack)
+- **Coverage Specs:** `specs/coverage/` (functional-tests, user-journeys-tests, technical-tests)
+
+`specs/business/uc4-compare.md` and `specs/functional/preview-comparison.md` document the full A/B/C design comparison and the decision to promote Candidate B to production — see `hall-of-honor/README.md` for the retired candidates.
 
 Every HTML/CSS/JS file includes traceability comments linking implementation to requirements.
 

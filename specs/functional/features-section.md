@@ -1,115 +1,113 @@
 ---
 id: FUN-FEATURES
-status: implemented
+status: draft
 created: 2026-01-22
-implemented: 2026-02-04T12:30:00Z
-deployed: 2026-01-30T00:00:00Z
-validated: 2026-01-30T23:25:24Z
-modified: 2026-02-04
-prompt_version: initial
+modified: 2026-07-15
 ---
 
-# Features Section
+# Three Toolkits Section
 
 ## References
 
 ### Foundation Reference
 
-- [FUN-LAYOUT](./page-layout.md) — Features section is second section in page structure
+- [FUN-LAYOUT](./page-layout.md) — Three Toolkits section is second section in page structure
 
 ### Implements
 
-- [BUS-FEATURES](../business/uc2-features.md) — Implements feature presentation and differentiation
+- [BUS-FEATURES](../business/uc2-features.md) — Implements per-offering feature presentation and differentiation
 
 ## Scope
 
 ### Included
 
-- Display of 4 feature cards showcasing key capabilities
-- Feature card content (title, description)
-- Responsive grid layout for feature cards
-- Feature visibility when section scrolls into view
+- Display of exactly 3 toolkit cards, one per offering (smaQit, smaQit Extensions, smaQit ADK), extending the original single-product 4-feature-card pattern to a 3-product card pattern
+- Toolkit card content (offering name, one-line tagline, 3-4 mini feature bullets, GitHub link)
+- Responsive grid layout for toolkit cards
+- Visual accent distinguishing each of the three cards from one another
+- Toolkit card visibility when section scrolls into view
 
 ### Excluded
 
 - Overall page structure (covered in FUN-LAYOUT)
 - Hero section content (covered in FUN-HERO)
-- Social links (covered in FUN-SOCIAL)
+- Social and repository links behavior beyond the in-card GitHub link (covered in FUN-SOCIAL)
 - Feature content authoring and management
 
 ## User Flow
 
 ### Overview
 
-Visitor scrolls to features section and views 4 feature cards arranged in a responsive grid, learning about smaQit's key differentiators.
+Visitor scrolls to the Three Toolkits section and views 3 toolkit cards arranged in a responsive grid, learning about smaQit's, smaQit Extensions', and smaQit ADK's key differentiators.
 
 ### Steps
 
 1. Visitor scrolls down from hero section
-2. Features section comes into viewport
-3. Visitor sees 4 feature cards displayed in grid layout
-4. Visitor reads first feature: "Stateful Specs" with description
-5. Visitor reads second feature: "Versioned Prompts" with description
-6. Visitor reads third feature: "Built for Agile Teams" with description
-7. Visitor reads fourth feature: "Modular Layers" with description
-8. Visitor understands smaQit's innovative approach and differentiators
+2. Three Toolkits section comes into viewport
+3. Visitor sees 3 toolkit cards displayed in a grid layout
+4. Visitor reads the first card: "smaQit" with tagline and mini feature list
+5. Visitor reads the second card: "smaQit Extensions" with tagline and mini feature list
+6. Visitor reads the third card: "smaQit ADK" with tagline and mini feature list
+7. Visitor understands each offering's differentiators and can follow a GitHub link from any card
 
 ### Error Handling
 
 | Condition | Behavior |
 |-----------|----------|
-| Images/icons fail to load | Feature text content remains accessible |
-| Grid layout unsupported | Features stack vertically in fallback layout |
+| Images/icons fail to load | Card text content remains accessible |
+| Grid layout unsupported | Cards stack vertically in fallback layout |
 
 ## Data Model
 
-### Feature
+### ToolkitCard
 
 | Attribute | Type | Description | Constraints |
 |-----------|------|-------------|-------------|
-| id | Text | Feature identifier | Required; unique; values: stateful-specs, versioned-prompts, agile-teams, modular-layers |
-| title | Text | Feature name | Required; max 50 characters |
-| description | Text | Feature explanation | Required; max 200 characters |
-| order | Number | Display order | Required; unique; 1-4 |
+| id | Text | Card identifier | Required; unique; values: smaqit-core, smaqit-extensions, smaqit-adk |
+| title | Text | Offering name | Required; max 50 characters |
+| tagline | Text | One-line offering purpose | Required; max 100 characters |
+| miniFeatures | Array | Short feature bullets | Required; length 3-4; each max 80 characters |
+| githubUrl | Text | Link to the offering's repository | Required; valid URL format; must start with https:// |
+| order | Number | Display order | Required; unique; 1-3 |
 
-### FeaturesList
+### ToolkitCardsList
 
 | Attribute | Type | Description | Constraints |
 |-----------|------|-------------|-------------|
-| features | Array | Collection of features | Required; length = 4 |
+| cards | Array | Collection of toolkit cards | Required; length = 3 |
 
-#### Feature Content
+#### Toolkit Card Content
 
-| ID | Title | Description |
-|----|-------|-------------|
-| stateful-specs | Stateful Specs | Track specification state through development lifecycle with built-in versioning and status management |
-| versioned-prompts | Versioned Prompts | Reproducible AI-assisted development with version-controlled prompts that ensure consistency |
-| agile-teams | Built for Agile Teams | Seamless integration with agile workflows, supporting iterative development and continuous delivery |
-| modular-layers | Modular Layers | Flexible architecture with distinct specification layers: Business, Functional, Stack, Infrastructure, Coverage |
+| ID | Title | Tagline |
+|----|-------|---------|
+| smaqit-core | smaQit | Spec-driven agent orchestration — describe requirements, get working, tested, deployed code |
+| smaqit-extensions | smaQit Extensions | Quality-of-life workflows, agents, and skills for your AI coding sessions |
+| smaqit-adk | smaQit ADK | The agent development kit — build custom Copilot agents and skills |
 
 ## API Contract
 
-*Not applicable: Features section displays static content with no API interactions.*
+*Not applicable: Three Toolkits section displays static content with no API interactions.*
 
 ## State Transitions
 
-*Not applicable: Features section is stateless; content is always visible when scrolled into view.*
+*Not applicable: Three Toolkits section is stateless; content is always visible when scrolled into view.*
 
 ## Acceptance Criteria
 
 Requirements use format: `FUN-FEATURES-[NNN]`
 
-- [x] FUN-FEATURES-001: Features section displays exactly 4 feature cards
-- [x] FUN-FEATURES-002: Feature card 1 displays "Stateful Specs" title and description
-- [x] FUN-FEATURES-003: Feature card 2 displays "Versioned Prompts" title and description
-- [x] FUN-FEATURES-004: Feature card 3 displays "Built for Agile Teams" title and description
-- [x] FUN-FEATURES-005: Feature card 4 displays "Modular Layers" title and description
-- [x] FUN-FEATURES-006: Feature cards are arranged in a grid layout on desktop viewports (> 1024px)
-- [x] FUN-FEATURES-007: Feature cards display in 2x2 grid on desktop viewports
-- [x] FUN-FEATURES-008: Feature cards stack vertically or in 2x2 grid on mobile viewports (< 768px)
-- [x] FUN-FEATURES-009: Feature cards remain readable and accessible when grid layout is unsupported
-- [x] FUN-FEATURES-010: Features section is positioned below hero section in page flow
+- [ ] FUN-FEATURES-001: Three Toolkits section displays exactly 3 toolkit cards
+- [ ] FUN-FEATURES-002: Card 1 displays "smaQit" title, tagline, and 3-4 mini feature bullets
+- [ ] FUN-FEATURES-003: Card 2 displays "smaQit Extensions" title, tagline, and 3-4 mini feature bullets
+- [ ] FUN-FEATURES-004: Card 3 displays "smaQit ADK" title, tagline, and 3-4 mini feature bullets
+- [ ] FUN-FEATURES-005: Each card includes a GitHub link to its corresponding repository
+- [ ] FUN-FEATURES-006: Toolkit cards are arranged in a grid layout on desktop viewports (> 1024px)
+- [ ] FUN-FEATURES-007: Toolkit cards display in a 3-column grid on desktop viewports
+- [ ] FUN-FEATURES-008: Toolkit cards stack vertically on mobile viewports (< 768px)
+- [ ] FUN-FEATURES-009: Toolkit cards remain readable and accessible when grid layout is unsupported
+- [ ] FUN-FEATURES-010: Three Toolkits section is positioned below hero section in page flow
+- [ ] FUN-FEATURES-011: Each toolkit card has a visually distinct accent (e.g., color) differentiating it from the other two cards
 
 ---
 
-*Generated with smaqit v0.6.2-beta*
+*Generated with smaqit v1.2.0*

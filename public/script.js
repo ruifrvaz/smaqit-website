@@ -1,85 +1,68 @@
 /**
- * Traceability: STK-FRONTEND-003 (ES6+ JavaScript)
- * Traceability: STK-FRONTEND-007 (Progressive enhancement - optional JS)
- * Traceability: FUN-LAYOUT-004 (Smooth scroll enhancement)
- * 
- * This script provides optional progressive enhancements.
- * Core functionality works without JavaScript (FUN-LAYOUT-008).
+ * Traceability: STK-FRONTEND-003 (ES6+), STK-FRONTEND-011 (IntersectionObserver, not scroll polling)
+ * Candidate B — continuous scroll: cards fade/rise into view as they cross the viewport,
+ * and the fixed background cross-fades its glow to match the active section.
+ * Core content is visible in the HTML/CSS without this script (progressive enhancement).
  */
-
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Smooth scroll is already handled by CSS (scroll-behavior: smooth)
-    // This JavaScript provides enhanced smooth scroll for browsers that don't support CSS smooth scroll
-    
-    // Feature detection: Check if browser supports smooth scroll
-    const supportsNativeSmoothScroll = 'scrollBehavior' in document.documentElement.style;
-    
-    if (!supportsNativeSmoothScroll) {
-        // Fallback smooth scroll for older browsers
-        const links = document.querySelectorAll('a[href^="#"]');
-        
-        links.forEach(link => {
-            link.addEventListener('click', (e) => {
-                const targetId = link.getAttribute('href');
-                
-                // Skip if it's just "#"
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    e.preventDefault();
-                    
-                    // Smooth scroll polyfill
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+    const beats = document.querySelectorAll('.beat');
+    const dots = document.querySelectorAll('.panel-dots .dot');
+    const blobs = document.querySelectorAll('.blob');
+
+    const blobFor = (panelId) => document.querySelector('.blob-' + panelId.replace('panel-', ''));
+
+    const setActiveDot = (panelId) => {
+        dots.forEach((dot) => {
+            dot.classList.toggle('active', dot.dataset.panel === panelId);
+        });
+    };
+
+    const setActiveBlob = (panelId) => {
+        const target = blobFor(panelId);
+        blobs.forEach((blob) => blob.classList.toggle('active', blob === target));
+    };
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    setActiveDot(entry.target.id);
+                    setActiveBlob(entry.target.id);
                 }
             });
-        });
+        }, { threshold: 0.45 });
+
+        beats.forEach((beat) => observer.observe(beat));
+    } else {
+        // No IntersectionObserver support: reveal everything immediately
+        beats.forEach((beat) => beat.classList.add('is-visible'));
     }
-    
-    // Optional: Add animation on scroll for feature cards
-    // This is a progressive enhancement and doesn't affect core functionality
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
+
+    // Smooth-scroll dot navigation to the target section
+    dots.forEach((dot) => {
+        dot.addEventListener('click', (e) => {
+            const targetId = dot.dataset.panel;
+            const targetBeat = document.getElementById(targetId);
+            if (targetBeat) {
+                e.preventDefault();
+                targetBeat.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
-    }, observerOptions);
-    
-    // Animate feature cards on scroll (if supported)
-    if ('IntersectionObserver' in window) {
-        const featureCards = document.querySelectorAll('.feature-card');
-        
-        featureCards.forEach((card, index) => {
-            // Set initial state
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
-            
-            // Observe for intersection
-            observer.observe(card);
-        });
-    }
-    
-    // Log successful initialization (development only)
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        console.log('✅ smaQ\'it website loaded successfully');
-        console.log('📊 Smooth scroll:', supportsNativeSmoothScroll ? 'Native CSS' : 'JS Polyfill');
-        console.log('🎨 IntersectionObserver:', 'IntersectionObserver' in window ? 'Supported' : 'Not supported');
+    });
+
+    // Subtle parallax drift on the background blobs, throttled to animation frames
+    const bgScene = document.querySelector('.bg-scene');
+    if (bgScene && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    bgScene.style.transform = 'translate3d(0, ' + (window.scrollY * -0.04) + 'px, 0)';
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
     }
 });
-
-// Traceability: FUN-LAYOUT-009 (Graceful degradation)
-// All functionality above degrades gracefully - page works without this script
